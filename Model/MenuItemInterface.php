@@ -17,37 +17,37 @@ interface MenuItemInterface
     /**
      * @return string
      */
-    public function getIdentifier();
+    public function getIdentifier(): string;
 
     /**
      * @return string
      */
-    public function getLabel();
+    public function getLabel(): string;
 
     /**
      * @return string
      */
-    public function getRoute();
+    public function getRoute(): string;
 
     /**
      * @return bool
      */
-    public function isActive();
+    public function isActive(): bool;
 
     /**
      * @param bool $isActive
      */
-    public function setIsActive($isActive);
+    public function setIsActive(bool $isActive);
 
     /**
      * @return bool
      */
-    public function hasChildren();
+    public function hasChildren(): bool;
 
     /**
      * @return array
      */
-    public function getChildren();
+    public function getChildren(): array;
 
     /**
      * @param MenuItemInterface $child
@@ -62,35 +62,35 @@ interface MenuItemInterface
     /**
      * @return string
      */
-    public function getIcon();
+    public function getIcon(): string;
 
     /**
      * @return string
      */
-    public function getBadge();
+    public function getBadge(): string;
 
     /**
      * @return string
      */
-    public function getBadgeColor();
+    public function getBadgeColor(): string;
 
     /**
      * @return MenuItemInterface
      */
-    public function getParent();
+    public function getParent(): MenuItemInterface;
 
     /**
      * @return bool
      */
-    public function hasParent();
+    public function hasParent(): bool;
 
     /**
-     * @param MenuItemInterface $parent
+     * @param ?MenuItemInterface $parent
      */
-    public function setParent(MenuItemInterface $parent = null);
+    public function setParent(?MenuItemInterface $parent = null);
 
     /**
      * @return MenuItemInterface|null
      */
-    public function getActiveChild();
+    public function getActiveChild(): ?MenuItemInterface;
 }

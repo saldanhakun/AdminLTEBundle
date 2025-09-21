@@ -16,29 +16,29 @@ class TaskModel implements TaskInterface
     /**
      * @var int
      */
-    protected $progress;
+    protected int $progress;
 
     /**
      * @var string
      */
-    protected $color = Constants::COLOR_AQUA;
+    protected string $color = Constants::COLOR_AQUA;
+
+    /**
+     * @var string|null
+     */
+    protected ?string $title;
 
     /**
      * @var string
      */
-    protected $title;
+    protected string $id;
 
     /**
-     * @var string
-     */
-    protected $id;
-
-    /**
-     * @param string $title
+     * @param string|null $title
      * @param int $progress
      * @param string $color
      */
-    public function __construct($title = null, $progress = 0, $color = Constants::COLOR_AQUA)
+    public function __construct(?string $title = null, int $progress = 0, string $color = Constants::COLOR_AQUA)
     {
         $this->title = $title;
         $this->progress = $progress;
@@ -48,7 +48,7 @@ class TaskModel implements TaskInterface
     /**
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
@@ -57,7 +57,7 @@ class TaskModel implements TaskInterface
      * @param string $id
      * @return TaskModel
      */
-    public function setId($id)
+    public function setId(string $id): self
     {
         $this->id = $id;
 
@@ -69,7 +69,7 @@ class TaskModel implements TaskInterface
      *
      * @return TaskModel
      */
-    public function setColor($color)
+    public function setColor(string $color): self
     {
         $this->color = $color;
 
@@ -79,7 +79,7 @@ class TaskModel implements TaskInterface
     /**
      * @return string
      */
-    public function getColor()
+    public function getColor(): string
     {
         return $this->color;
     }
@@ -89,7 +89,7 @@ class TaskModel implements TaskInterface
      *
      * @return TaskModel
      */
-    public function setProgress($progress)
+    public function setProgress(int $progress): self
     {
         $this->progress = $progress;
 
@@ -99,7 +99,7 @@ class TaskModel implements TaskInterface
     /**
      * @return int
      */
-    public function getProgress()
+    public function getProgress(): int
     {
         return $this->progress;
     }
@@ -109,7 +109,7 @@ class TaskModel implements TaskInterface
      *
      * @return TaskModel
      */
-    public function setTitle($title)
+    public function setTitle(string $title): self
     {
         $this->title = $title;
 
@@ -119,7 +119,7 @@ class TaskModel implements TaskInterface
     /**
      * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -127,7 +127,7 @@ class TaskModel implements TaskInterface
     /**
      * @return string
      */
-    public function getIdentifier()
+    public function getIdentifier(): string
     {
         if (!empty($this->id)) {
             return $this->id;

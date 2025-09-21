@@ -18,12 +18,12 @@ class MenuBuilder
     /**
      * @var FactoryInterface
      */
-    private $factory;
+    private FactoryInterface $factory;
 
     /**
      * @var EventDispatcherInterface
      */
-    private $eventDispatcher;
+    private EventDispatcherInterface $eventDispatcher;
 
     /**
      * @param FactoryInterface $factory
@@ -35,7 +35,7 @@ class MenuBuilder
         $this->eventDispatcher = $eventDispatcher;
     }
 
-    public function createMainMenu(array $options)
+    public function createMainMenu(array $options): \Knp\Menu\ItemInterface
     {
         $menu = $this->factory->createItem('root', [
             'childrenAttributes' => ['class' => 'sidebar-menu tree', 'data-widget' => 'tree'],

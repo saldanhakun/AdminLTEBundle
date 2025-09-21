@@ -19,26 +19,26 @@ interface MessageInterface
      *
      * @return UserInterface
      */
-    public function getFrom();
+    public function getFrom(): UserInterface;
 
     /**
      * Returns the sentAt date
      *
      * @return \DateTime
      */
-    public function getSentAt();
+    public function getSentAt(): \DateTime;
 
     /**
      * Returns the subject
      *
      * @return string
      */
-    public function getSubject();
+    public function getSubject(): string;
 
     /**
      * Returns the unique identifier of this message
      *
      * @return string
      */
-    public function getIdentifier();
+    public function getIdentifier(): string;
 }

@@ -20,19 +20,19 @@ class KnpMenuEvent extends ThemeEvent
     /**
      * @var ItemInterface
      */
-    protected $menu;
+    protected ItemInterface $menu;
     /**
      * @var FactoryInterface
      */
-    protected $factory;
+    protected FactoryInterface $factory;
     /**
      * @var array
      */
-    private $options;
+    private array $options;
     /**
      * @var array
      */
-    private $childOptions;
+    private array $childOptions;
 
     /**
      * @param ItemInterface $menu
@@ -40,7 +40,7 @@ class KnpMenuEvent extends ThemeEvent
      * @param array $options
      * @param array $childOptions
      */
-    public function __construct($menu, $factory, $options = [], $childOptions = [])
+    public function __construct(ItemInterface $menu, FactoryInterface $factory, array $options = [], array $childOptions = [])
     {
         $this->menu = $menu;
         $this->factory = $factory;
@@ -51,7 +51,7 @@ class KnpMenuEvent extends ThemeEvent
     /**
      * @return ItemInterface
      */
-    public function getMenu()
+    public function getMenu(): ItemInterface
     {
         return $this->menu;
     }
@@ -59,7 +59,7 @@ class KnpMenuEvent extends ThemeEvent
     /**
      * @return FactoryInterface
      */
-    public function getFactory()
+    public function getFactory(): FactoryInterface
     {
         return $this->factory;
     }
@@ -67,7 +67,7 @@ class KnpMenuEvent extends ThemeEvent
     /**
      * @return array
      */
-    public function getOptions()
+    public function getOptions(): array
     {
         return $this->options;
     }
@@ -75,7 +75,7 @@ class KnpMenuEvent extends ThemeEvent
     /**
      * @return array
      */
-    public function getChildOptions()
+    public function getChildOptions(): array
     {
         return $this->childOptions;
     }

@@ -23,7 +23,7 @@ class Configuration implements ConfigurationInterface
     /**
      * {@inheritdoc}
      */
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('admin_lte');
         /** @var ArrayNodeDefinition $rootNode */
@@ -42,7 +42,7 @@ class Configuration implements ConfigurationInterface
         return $treeBuilder;
     }
 
-    private function getRouteAliasesConfig()
+    private function getRouteAliasesConfig(): ArrayNodeDefinition
     {
         $treeBuilder = new TreeBuilder('routes');
         /** @var ArrayNodeDefinition $rootNode */
@@ -105,7 +105,7 @@ class Configuration implements ConfigurationInterface
         return $rootNode;
     }
 
-    private function getKnpMenuConfig()
+    private function getKnpMenuConfig(): ArrayNodeDefinition
     {
         $treeBuilder = new TreeBuilder('knp_menu');
         /** @var ArrayNodeDefinition $rootNode */
@@ -132,7 +132,7 @@ class Configuration implements ConfigurationInterface
         return $rootNode;
     }
 
-    private function getWidgetConfig()
+    private function getWidgetConfig(): ArrayNodeDefinition
     {
         $treeBuilder = new TreeBuilder('widget');
         /** @var ArrayNodeDefinition $rootNode */
@@ -179,7 +179,7 @@ class Configuration implements ConfigurationInterface
         return $rootNode;
     }
 
-    private function getButtonConfig()
+    private function getButtonConfig(): ArrayNodeDefinition
     {
         $treeBuilder = new TreeBuilder('button');
         /** @var ArrayNodeDefinition $rootNode */
@@ -202,7 +202,7 @@ class Configuration implements ConfigurationInterface
         return $rootNode;
     }
 
-    private function getThemeConfig()
+    private function getThemeConfig(): ArrayNodeDefinition
     {
         $treeBuilder = new TreeBuilder('theme');
         /** @var ArrayNodeDefinition $rootNode */
@@ -219,7 +219,7 @@ class Configuration implements ConfigurationInterface
         return $rootNode;
     }
 
-    private function getOptionsConfig()
+    private function getOptionsConfig(): ArrayNodeDefinition
     {
         $treeBuilder = new TreeBuilder('options');
         /** @var ArrayNodeDefinition $rootNode */
@@ -282,7 +282,7 @@ class Configuration implements ConfigurationInterface
         return $rootNode;
     }
 
-    private function getControlSidebarConfig()
+    private function getControlSidebarConfig(): ArrayNodeDefinition
     {
         $treeBuilder = new TreeBuilder('control_sidebar');
         /** @var ArrayNodeDefinition $rootNode */

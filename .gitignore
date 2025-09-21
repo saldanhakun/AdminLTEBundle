@@ -13,6 +13,7 @@ nbproject/*
 .project
 .settings
 
-# Ignore cache files from php cs fixer
+# Ignore cache files from dev tools
 .php-cs-fixer.cache
 .twig-cs-fixer.cache
+.phpunit.result.cache

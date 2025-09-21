@@ -14,47 +14,47 @@ class UserModel implements UserInterface
     /**
      * @var string
      */
-    protected $avatar;
+    protected string $avatar;
 
     /**
      * @var string
      */
-    protected $username;
+    protected string $username;
 
     /**
      * @var string
      */
-    protected $name;
+    protected string $name;
 
     /**
      * @var string
      */
-    protected $title;
+    protected string $title;
 
     /**
      * @var \DateTime
      */
-    protected $memberSince;
+    protected \DateTime $memberSince;
 
     /**
      * @var bool
      */
-    protected $isOnline = false;
+    protected bool $isOnline = false;
 
     /**
      * @var string
      */
-    protected $id;
+    protected string $id;
 
     /**
      * @param string $username
      * @param string $avatar
-     * @param \DateTime $memberSince
+     * @param \DateTime|null $memberSince
      * @param bool $isOnline
      * @param string $name
      * @param string $title
      */
-    public function __construct($username = '', $avatar = '', $memberSince = null, $isOnline = true, $name = '', $title = '')
+    public function __construct(string $username = '', string $avatar = '', ?\DateTime $memberSince = null, bool $isOnline = true, string $name = '', string $title = '')
     {
         $this->username = $username;
         $this->avatar = $avatar;
@@ -67,7 +67,7 @@ class UserModel implements UserInterface
     /**
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
@@ -76,7 +76,7 @@ class UserModel implements UserInterface
      * @param string $id
      * @return UserModel
      */
-    public function setId($id)
+    public function setId(string $id): self
     {
         $this->id = $id;
 
@@ -88,7 +88,7 @@ class UserModel implements UserInterface
      *
      * @return $this
      */
-    public function setAvatar($avatar)
+    public function setAvatar(string $avatar): self
     {
         $this->avatar = $avatar;
 
@@ -98,7 +98,7 @@ class UserModel implements UserInterface
     /**
      * @return string
      */
-    public function getAvatar()
+    public function getAvatar(): string
     {
         return $this->avatar;
     }
@@ -108,7 +108,7 @@ class UserModel implements UserInterface
      *
      * @return $this
      */
-    public function setIsOnline($isOnline)
+    public function setIsOnline(bool $isOnline): self
     {
         $this->isOnline = $isOnline;
 
@@ -118,7 +118,7 @@ class UserModel implements UserInterface
     /**
      * @return bool
      */
-    public function getIsOnline()
+    public function getIsOnline(): bool
     {
         return $this->isOnline;
     }
@@ -128,7 +128,7 @@ class UserModel implements UserInterface
      *
      * @return $this
      */
-    public function setMemberSince(\DateTime $memberSince)
+    public function setMemberSince(\DateTime $memberSince): self
     {
         $this->memberSince = $memberSince;
 
@@ -138,7 +138,7 @@ class UserModel implements UserInterface
     /**
      * @return \DateTime
      */
-    public function getMemberSince()
+    public function getMemberSince(): \DateTime
     {
         return $this->memberSince;
     }
@@ -148,7 +148,7 @@ class UserModel implements UserInterface
      *
      * @return $this
      */
-    public function setUsername($username)
+    public function setUsername(string $username): self
     {
         $this->username = $username;
 
@@ -158,7 +158,7 @@ class UserModel implements UserInterface
     /**
      * @return string
      */
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->username;
     }
@@ -168,7 +168,7 @@ class UserModel implements UserInterface
      *
      * @return $this
      */
-    public function setName($name)
+    public function setName(string $name): self
     {
         $this->name = $name;
 
@@ -178,7 +178,7 @@ class UserModel implements UserInterface
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -188,7 +188,7 @@ class UserModel implements UserInterface
      *
      * @return $this
      */
-    public function setTitle($title)
+    public function setTitle(string $title): self
     {
         $this->title = $title;
 
@@ -198,7 +198,7 @@ class UserModel implements UserInterface
     /**
      * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -206,7 +206,7 @@ class UserModel implements UserInterface
     /**
      * @return bool
      */
-    public function isOnline()
+    public function isOnline(): bool
     {
         return $this->getIsOnline();
     }
@@ -214,7 +214,7 @@ class UserModel implements UserInterface
     /**
      * @return string
      */
-    public function getIdentifier()
+    public function getIdentifier(): string
     {
         if (!empty($this->id)) {
             return $this->id;

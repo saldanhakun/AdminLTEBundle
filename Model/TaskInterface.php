@@ -14,20 +14,20 @@ interface TaskInterface
     /**
      * @return string
      */
-    public function getColor();
+    public function getColor(): string;
 
     /**
      * @return int
      */
-    public function getProgress();
+    public function getProgress(): int;
 
     /**
      * @return string
      */
-    public function getTitle();
+    public function getTitle(): string;
 
     /**
      * @return string
      */
-    public function getIdentifier();
+    public function getIdentifier(): string;
 }

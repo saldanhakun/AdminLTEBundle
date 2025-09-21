@@ -40,7 +40,7 @@ class NotificationListEventTest extends TestCase
 
         $this->assertEquals(7, $event->getTotal());
         $this->assertEquals(10, $event->getMax());
-        $this->assertEquals(7, \count($event->getNotifications()));
+        $this->assertCount(7, $event->getNotifications());
     }
 
     /**
@@ -57,7 +57,7 @@ class NotificationListEventTest extends TestCase
 
         $this->assertEquals(7, $event->getTotal());
         $this->assertEquals(5, $event->getMax());
-        $this->assertEquals(5, \count($event->getNotifications()));
+        $this->assertCount(5, $event->getNotifications());
     }
 
     /**
@@ -74,7 +74,7 @@ class NotificationListEventTest extends TestCase
 
         $this->assertEquals(7, $event->getTotal());
         $this->assertEquals(null, $event->getMax());
-        $this->assertEquals(7, \count($event->getNotifications()));
+        $this->assertCount(7, $event->getNotifications());
     }
 
     /**
@@ -92,7 +92,7 @@ class NotificationListEventTest extends TestCase
 
         $this->assertEquals(15, $event->getTotal());
         $this->assertEquals(null, $event->getMax());
-        $this->assertEquals(7, \count($event->getNotifications()));
+        $this->assertCount(7, $event->getNotifications());
     }
 
     /**
@@ -110,7 +110,7 @@ class NotificationListEventTest extends TestCase
 
         $this->assertEquals(15, $event->getTotal());
         $this->assertEquals(3, $event->getMax());
-        $this->assertEquals(3, \count($event->getNotifications()));
+        $this->assertCount(3, $event->getNotifications());
     }
 
     /**
@@ -119,7 +119,7 @@ class NotificationListEventTest extends TestCase
      * @param string $type
      * @return array|NotificationModel[]
      */
-    private function generateNbNotifications($number, $type = Constants::TYPE_INFO)
+    private function generateNbNotifications(int $number, string $type = Constants::TYPE_INFO): array
     {
         $tasks = [];
         for ($i = 0; $i < $number; $i++) {

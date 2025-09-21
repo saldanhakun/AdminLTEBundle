@@ -14,35 +14,35 @@ interface UserInterface
     /**
      * @return string
      */
-    public function getAvatar();
+    public function getAvatar(): string;
 
     /**
      * @return string
      */
-    public function getUsername();
+    public function getUsername(): string;
 
     /**
      * @return string
      */
-    public function getName();
+    public function getName(): string;
 
     /**
      * @return \DateTime
      */
-    public function getMemberSince();
+    public function getMemberSince(): \DateTime;
 
     /**
      * @return bool
      */
-    public function isOnline();
+    public function isOnline(): bool;
 
     /**
      * @return string
      */
-    public function getIdentifier();
+    public function getIdentifier(): string;
 
     /**
      * @return string
      */
-    public function getTitle();
+    public function getTitle(): string;
 }

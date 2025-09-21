@@ -33,11 +33,11 @@ final class EventsExtension implements RuntimeExtensionInterface
     /**
      * @var EventDispatcherInterface
      */
-    private $eventDispatcher;
+    private EventDispatcherInterface $eventDispatcher;
     /**
      * @var ContextHelper
      */
-    private $helper;
+    private ContextHelper $helper;
 
     public function __construct(EventDispatcherInterface $dispatcher, ContextHelper $helper)
     {
@@ -82,7 +82,6 @@ final class EventsExtension implements RuntimeExtensionInterface
         /** @var BreadcrumbMenuEvent $event */
         $event = $this->eventDispatcher->dispatch(new BreadcrumbMenuEvent($request));
 
-        /** @var MenuItemInterface $active */
         $active = $event->getActive();
         $list = [];
         if (null !== $active) {
@@ -150,7 +149,6 @@ final class EventsExtension implements RuntimeExtensionInterface
             return null;
         }
 
-        /** @var ShowUserEvent $userEvent */
         $userEvent = $this->eventDispatcher->dispatch(new NavbarUserEvent());
 
         if ($userEvent instanceof ShowUserEvent && null !== $userEvent->getUser()) {

@@ -16,10 +16,10 @@ interface MessageRepositoryInterface
     /**
      * @return int
      */
-    public function getTotal();
+    public function getTotal(): int;
 
     /**
      * @return iterable<MessageInterface>
      */
-    public function getMessages();
+    public function getMessages(): iterable;
 }

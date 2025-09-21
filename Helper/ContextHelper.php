@@ -24,7 +24,7 @@ class ContextHelper extends \ArrayObject
      * @param mixed $value
      * @return $this
      */
-    public function setOption(string $name, $value): ContextHelper
+    public function setOption(string $name, mixed $value): ContextHelper
     {
         $this->offsetSet($name, $value);
 
@@ -42,10 +42,10 @@ class ContextHelper extends \ArrayObject
 
     /**
      * @param string $name
-     * @param mixed $default
+     * @param mixed|null $default
      * @return mixed|null
      */
-    public function getOption(string $name, $default = null)
+    public function getOption(string $name, mixed $default = null): mixed
     {
         return $this->offsetExists($name) ? $this->offsetGet($name) : $default;
     }

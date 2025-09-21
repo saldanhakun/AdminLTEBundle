@@ -16,10 +16,10 @@ interface NotificationRepositoryInterface
     /**
      * @return int
      */
-    public function getTotal();
+    public function getTotal(): int;
 
     /**
      * @return iterable<NotificationInterface>
      */
-    public function getNotifications();
+    public function getNotifications(): iterable;
 }

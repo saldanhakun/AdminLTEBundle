@@ -16,26 +16,26 @@ class NotificationModel implements NotificationInterface
     /**
      * @var string
      */
-    protected $type = Constants::TYPE_INFO;
+    protected string $type = Constants::TYPE_INFO;
+    /**
+     * @var string|null
+     */
+    protected ?string $message;
     /**
      * @var string
      */
-    protected $message;
+    protected string $icon;
     /**
      * @var string
      */
-    protected $icon;
-    /**
-     * @var string
-     */
-    protected $id;
+    protected string $id;
 
     /**
      * @param string|null $message
      * @param string $type
      * @param string $icon
      */
-    public function __construct($message = null, $type = Constants::TYPE_INFO, $icon = 'fas fa-exclamation-triangle')
+    public function __construct(?string $message = null, string $type = Constants::TYPE_INFO, string $icon = 'fas fa-exclamation-triangle')
     {
         $this->message = $message;
         $this->type = $type;
@@ -45,7 +45,7 @@ class NotificationModel implements NotificationInterface
     /**
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
@@ -54,7 +54,7 @@ class NotificationModel implements NotificationInterface
      * @param string $id
      * @return NotificationModel
      */
-    public function setId($id)
+    public function setId(string $id): self
     {
         $this->id = $id;
 
@@ -66,7 +66,7 @@ class NotificationModel implements NotificationInterface
      *
      * @return NotificationModel
      */
-    public function setMessage($message)
+    public function setMessage(string $message): self
     {
         $this->message = $message;
 
@@ -76,7 +76,7 @@ class NotificationModel implements NotificationInterface
     /**
      * @return string
      */
-    public function getMessage()
+    public function getMessage(): string
     {
         return $this->message;
     }
@@ -86,7 +86,7 @@ class NotificationModel implements NotificationInterface
      *
      * @return NotificationModel
      */
-    public function setType($type)
+    public function setType(string $type): self
     {
         $this->type = $type;
 
@@ -96,7 +96,7 @@ class NotificationModel implements NotificationInterface
     /**
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }
@@ -106,7 +106,7 @@ class NotificationModel implements NotificationInterface
      *
      * @return NotificationModel
      */
-    public function setIcon($icon)
+    public function setIcon(string $icon): self
     {
         $this->icon = $icon;
 
@@ -116,7 +116,7 @@ class NotificationModel implements NotificationInterface
     /**
      * @return string
      */
-    public function getIcon()
+    public function getIcon(): string
     {
         return $this->icon;
     }
@@ -124,7 +124,7 @@ class NotificationModel implements NotificationInterface
     /**
      * @return string
      */
-    public function getIdentifier()
+    public function getIdentifier(): string
     {
         if (!empty($this->id)) {
             return $this->id;

@@ -14,7 +14,7 @@
         },
         {
             "name": "Marc Bach",
-            "homepage": "http://www.avanzu.de"
+            "homepage": "https://www.avanzu.de"
         },
         {
             "name": "Ángel Guzmán Maeso",
@@ -67,5 +67,8 @@
             "vendor/bin/php-cs-fixer fix",
             "vendor/bin/twig-cs-fixer lint --fix Resources/views"
         ]
+    },
+    "conflict": {
+        "phpunit/phpunit": ">=12.0"
     }
 }

@@ -42,7 +42,7 @@ class ConfigurationTest extends TestCase
         $this->assertEquals($config['admin_lte'], $processedConfig);
     }
 
-    protected function getDefaultConfig()
+    protected function getDefaultConfig(): array
     {
         return [
             'admin_lte' => [

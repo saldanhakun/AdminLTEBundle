@@ -16,10 +16,10 @@ interface TaskRepositoryInterface
     /**
      * @return int
      */
-    public function getTotal();
+    public function getTotal(): int;
 
     /**
      * @return iterable<TaskInterface>
      */
-    public function getTasks();
+    public function getTasks(): iterable;
 }

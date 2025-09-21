@@ -40,7 +40,7 @@ class MessageListEventTest extends TestCase
 
         $this->assertEquals(7, $event->getTotal());
         $this->assertEquals(10, $event->getMax());
-        $this->assertEquals(7, \count($event->getMessages()));
+        $this->assertCount(7, $event->getMessages());
     }
 
     /**
@@ -57,7 +57,7 @@ class MessageListEventTest extends TestCase
 
         $this->assertEquals(7, $event->getTotal());
         $this->assertEquals(5, $event->getMax());
-        $this->assertEquals(5, \count($event->getMessages()));
+        $this->assertCount(5, $event->getMessages());
     }
 
     /**
@@ -74,7 +74,7 @@ class MessageListEventTest extends TestCase
 
         $this->assertEquals(7, $event->getTotal());
         $this->assertEquals(null, $event->getMax());
-        $this->assertEquals(7, \count($event->getMessages()));
+        $this->assertCount(7, $event->getMessages());
     }
 
     /**
@@ -92,7 +92,7 @@ class MessageListEventTest extends TestCase
 
         $this->assertEquals(15, $event->getTotal());
         $this->assertEquals(null, $event->getMax());
-        $this->assertEquals(7, \count($event->getMessages()));
+        $this->assertCount(7, $event->getMessages());
     }
 
     /**
@@ -110,7 +110,7 @@ class MessageListEventTest extends TestCase
 
         $this->assertEquals(15, $event->getTotal());
         $this->assertEquals(3, $event->getMax());
-        $this->assertEquals(3, \count($event->getMessages()));
+        $this->assertCount(3, $event->getMessages());
     }
 
     /**
@@ -118,7 +118,7 @@ class MessageListEventTest extends TestCase
      * @param int $number
      * @return array|MessageModel[]
      */
-    private function generateNbMessages($number)
+    private function generateNbMessages(int $number): array
     {
         $messages = [];
         for ($i = 0; $i < $number; $i++) {
@@ -136,7 +136,7 @@ class MessageListEventTest extends TestCase
      * @param string $username
      * @return UserModel
      */
-    private function generateUser($username)
+    private function generateUser(string $username): UserModel
     {
         $user = new UserModel();
         $user->setUsername($username);

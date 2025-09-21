@@ -17,68 +17,68 @@ class MenuItemModel implements MenuItemInterface
     /**
      * @var string
      */
-    protected $identifier;
+    protected string $identifier;
 
     /**
      * @var string
      */
-    protected $label;
+    protected string $label;
 
     /**
      * @var string
      */
-    protected $route;
+    protected string $route;
 
     /**
      * @var array
      */
-    protected $routeArgs = [];
+    protected array $routeArgs = [];
     /**
      * @var bool
      */
-    protected $isActive = false;
+    protected bool $isActive = false;
     /**
      * @var array
      */
-    protected $children = [];
+    protected array $children = [];
 
     /**
      * @var mixed
      */
-    protected $icon = false;
+    protected mixed $icon = false;
 
     /**
      * @var mixed
      */
-    protected $badge = false;
+    protected mixed $badge = false;
 
     /**
      * @var string
      */
-    protected $badgeColor = 'green';
+    protected string $badgeColor = 'green';
 
     /**
-     * @var MenuItemInterface
+     * @var MenuItemInterface|null
      */
-    protected $parent = null;
+    protected ?MenuItemInterface $parent = null;
 
     /**
      * @param string $id
      * @param string $label
      * @param string $route
      * @param array $routeArgs
-     * @param mixed $icon
-     * @param mixed $badge
+     * @param false|mixed $icon
+     * @param false|mixed $badge
      * @param string $badgeColor
      */
     public function __construct(
-        $id,
-        $label,
-        $route,
-        $routeArgs = [],
-        $icon = false,
-        $badge = false,
-        $badgeColor = 'green'
+        string $id,
+        string $label,
+        string $route,
+        array $routeArgs = [],
+        mixed $icon = false,
+        mixed $badge = false,
+        string $badgeColor = 'green'
     ) {
         $this->badge = $badge;
         $this->icon = $icon;
@@ -90,9 +90,9 @@ class MenuItemModel implements MenuItemInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getBadge()
+    public function getBadge(): string
     {
         return $this->badge;
     }
@@ -102,7 +102,7 @@ class MenuItemModel implements MenuItemInterface
      *
      * @return $this
      */
-    public function setBadge($badge)
+    public function setBadge(mixed $badge): static
     {
         $this->badge = $badge;
 
@@ -112,7 +112,7 @@ class MenuItemModel implements MenuItemInterface
     /**
      * @return array
      */
-    public function getChildren()
+    public function getChildren(): array
     {
         return $this->children;
     }
@@ -120,15 +120,15 @@ class MenuItemModel implements MenuItemInterface
     /**
      * @param array $children
      */
-    public function setChildren($children)
+    public function setChildren(array $children): void
     {
         $this->children = $children;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getIcon()
+    public function getIcon(): string
     {
         return $this->icon;
     }
@@ -138,7 +138,7 @@ class MenuItemModel implements MenuItemInterface
      *
      * @return $this
      */
-    public function setIcon($icon)
+    public function setIcon(mixed $icon): static
     {
         $this->icon = $icon;
 
@@ -148,7 +148,7 @@ class MenuItemModel implements MenuItemInterface
     /**
      * @return string
      */
-    public function getIdentifier()
+    public function getIdentifier(): string
     {
         return $this->identifier;
     }
@@ -158,7 +158,7 @@ class MenuItemModel implements MenuItemInterface
      *
      * @return $this
      */
-    public function setIdentifier($identifier)
+    public function setIdentifier(string $identifier): static
     {
         $this->identifier = $identifier;
 
@@ -168,7 +168,7 @@ class MenuItemModel implements MenuItemInterface
     /**
      * @return bool
      */
-    public function getIsActive()
+    public function getIsActive(): bool
     {
         return $this->isActive;
     }
@@ -178,7 +178,7 @@ class MenuItemModel implements MenuItemInterface
      *
      * @return $this
      */
-    public function setIsActive($isActive)
+    public function setIsActive(bool $isActive): static
     {
         if ($this->hasParent()) {
             $this->getParent()->setIsActive($isActive);
@@ -192,7 +192,7 @@ class MenuItemModel implements MenuItemInterface
     /**
      * @return bool
      */
-    public function hasParent()
+    public function hasParent(): bool
     {
         return $this->parent instanceof MenuItemInterface;
     }
@@ -200,17 +200,17 @@ class MenuItemModel implements MenuItemInterface
     /**
      * @return MenuItemInterface
      */
-    public function getParent()
+    public function getParent(): MenuItemInterface
     {
         return $this->parent;
     }
 
     /**
-     * @param MenuItemInterface $parent
+     * @param MenuItemInterface|null $parent
      *
      * @return $this
      */
-    public function setParent(MenuItemInterface $parent = null)
+    public function setParent(?MenuItemInterface $parent = null): self
     {
         $this->parent = $parent;
 
@@ -220,7 +220,7 @@ class MenuItemModel implements MenuItemInterface
     /**
      * @return string
      */
-    public function getLabel()
+    public function getLabel(): string
     {
         return $this->label;
     }
@@ -230,7 +230,7 @@ class MenuItemModel implements MenuItemInterface
      *
      * @return $this
      */
-    public function setLabel($label)
+    public function setLabel(string $label): static
     {
         $this->label = $label;
 
@@ -240,7 +240,7 @@ class MenuItemModel implements MenuItemInterface
     /**
      * @return string
      */
-    public function getRoute()
+    public function getRoute(): string
     {
         return $this->route;
     }
@@ -250,7 +250,7 @@ class MenuItemModel implements MenuItemInterface
      *
      * @return $this
      */
-    public function setRoute($route)
+    public function setRoute(string $route): static
     {
         $this->route = $route;
 
@@ -260,7 +260,7 @@ class MenuItemModel implements MenuItemInterface
     /**
      * @return array
      */
-    public function getRouteArgs()
+    public function getRouteArgs(): array
     {
         return $this->routeArgs;
     }
@@ -270,7 +270,7 @@ class MenuItemModel implements MenuItemInterface
      *
      * @return $this
      */
-    public function setRouteArgs($routeArgs)
+    public function setRouteArgs(array $routeArgs): static
     {
         $this->routeArgs = $routeArgs;
 
@@ -280,7 +280,7 @@ class MenuItemModel implements MenuItemInterface
     /**
      * @return bool
      */
-    public function hasChildren()
+    public function hasChildren(): bool
     {
         return \count($this->children) > 0;
     }
@@ -290,7 +290,7 @@ class MenuItemModel implements MenuItemInterface
      *
      * @return $this
      */
-    public function addChild(MenuItemInterface $child)
+    public function addChild(MenuItemInterface $child): static
     {
         $child->setParent($this);
         $this->children[] = $child;
@@ -303,7 +303,7 @@ class MenuItemModel implements MenuItemInterface
      *
      * @return $this
      */
-    public function removeChild(MenuItemInterface $child)
+    public function removeChild(MenuItemInterface $child): static
     {
         if (false !== ($key = array_search($child, $this->children))) {
             unset($this->children[$key]);
@@ -315,7 +315,7 @@ class MenuItemModel implements MenuItemInterface
     /**
      * @return string
      */
-    public function getBadgeColor()
+    public function getBadgeColor(): string
     {
         return $this->badgeColor;
     }
@@ -325,7 +325,7 @@ class MenuItemModel implements MenuItemInterface
      *
      * @return $this
      */
-    public function setBadgeColor($badgeColor)
+    public function setBadgeColor(string $badgeColor): static
     {
         $this->badgeColor = $badgeColor;
 
@@ -335,7 +335,7 @@ class MenuItemModel implements MenuItemInterface
     /**
      * @return MenuItemInterface|null
      */
-    public function getActiveChild()
+    public function getActiveChild(): ?MenuItemInterface
     {
         foreach ($this->children as $child) {
             if ($child->isActive()) {
@@ -349,7 +349,7 @@ class MenuItemModel implements MenuItemInterface
     /**
      * @return bool
      */
-    public function isActive()
+    public function isActive(): bool
     {
         return $this->isActive;
     }

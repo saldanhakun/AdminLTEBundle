@@ -22,24 +22,24 @@ class MessageListEvent extends ThemeEvent implements MessageRepositoryInterface
      *
      * @var array
      */
-    protected $messages = [];
+    protected array $messages = [];
 
     /**
      * Stores the total amount
      *
      * @var int
      */
-    protected $totalMessages = 0;
+    protected int $totalMessages = 0;
 
     /**
-     * @var int
+     * @var int|null
      */
-    protected $max = null;
+    protected ?int $max = null;
 
     /**
-     * @param int $max Maximun number of messages displayed in panel
+     * @param int|null $max Maximum number of messages displayed in panel
      */
-    public function __construct($max = null)
+    public function __construct(?int $max = null)
     {
         $this->max = $max;
     }
@@ -49,7 +49,7 @@ class MessageListEvent extends ThemeEvent implements MessageRepositoryInterface
      *
      * @return int
      */
-    public function getMax()
+    public function getMax(): ?int
     {
         return $this->max;
     }
@@ -59,7 +59,7 @@ class MessageListEvent extends ThemeEvent implements MessageRepositoryInterface
      *
      * @return array
      */
-    public function getMessages()
+    public function getMessages(): array
     {
         if (null !== $this->max) {
             return \array_slice($this->messages, 0, $this->max);
@@ -75,7 +75,7 @@ class MessageListEvent extends ThemeEvent implements MessageRepositoryInterface
      *
      * @return $this
      */
-    public function addMessage(MessageInterface $messageInterface)
+    public function addMessage(MessageInterface $messageInterface): static
     {
         $this->messages[] = $messageInterface;
 
@@ -87,7 +87,7 @@ class MessageListEvent extends ThemeEvent implements MessageRepositoryInterface
      *
      * @return int
      */
-    public function getTotal()
+    public function getTotal(): int
     {
         return $this->totalMessages === 0 ? \count($this->messages) : $this->totalMessages;
     }
@@ -95,7 +95,7 @@ class MessageListEvent extends ThemeEvent implements MessageRepositoryInterface
     /**
      * @param int $totalMessages
      */
-    public function setTotal($totalMessages)
+    public function setTotal(int $totalMessages): void
     {
         $this->totalMessages = $totalMessages;
     }

@@ -20,7 +20,7 @@ class RuntimeExtensionTest extends TestCase
      * @param array $options
      * @return RuntimeExtension
      */
-    protected function getSut(array $options = [])
+    protected function getSut(array $options = []): RuntimeExtension
     {
         $contextHelper = new ContextHelper();
         foreach ($options as $key => $value) {

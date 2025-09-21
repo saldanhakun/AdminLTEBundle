@@ -20,22 +20,22 @@ class TaskListEvent extends ThemeEvent implements TaskRepositoryInterface
     /**
      * @var TaskInterface[]
      */
-    protected $tasks = [];
+    protected array $tasks = [];
+
+    /**
+     * @var int|null
+     */
+    protected ?int $max;
 
     /**
      * @var int
      */
-    protected $max;
-
-    /**
-     * @var int
-     */
-    protected $total = 0;
+    protected int $total = 0;
 
     /**
      * @param int|null $max Maximum number of tasks displayed in panel
      */
-    public function __construct($max = null)
+    public function __construct(?int $max = null)
     {
         $this->max = $max;
     }
@@ -45,7 +45,7 @@ class TaskListEvent extends ThemeEvent implements TaskRepositoryInterface
      *
      * @return int
      */
-    public function getMax()
+    public function getMax(): ?int
     {
         return $this->max;
     }
@@ -53,7 +53,7 @@ class TaskListEvent extends ThemeEvent implements TaskRepositoryInterface
     /**
      * @return TaskInterface[]
      */
-    public function getTasks()
+    public function getTasks(): array
     {
         if (null !== $this->max) {
             return \array_slice($this->tasks, 0, $this->max);
@@ -67,7 +67,7 @@ class TaskListEvent extends ThemeEvent implements TaskRepositoryInterface
      *
      * @return $this
      */
-    public function addTask(TaskInterface $taskInterface)
+    public function addTask(TaskInterface $taskInterface): static
     {
         $this->tasks[] = $taskInterface;
 
@@ -79,7 +79,7 @@ class TaskListEvent extends ThemeEvent implements TaskRepositoryInterface
      *
      * @return $this
      */
-    public function setTotal($total)
+    public function setTotal(int $total): static
     {
         $this->total = $total;
 
@@ -89,7 +89,7 @@ class TaskListEvent extends ThemeEvent implements TaskRepositoryInterface
     /**
      * @return int
      */
-    public function getTotal()
+    public function getTotal(): int
     {
         return $this->total === 0 ? \count($this->tasks) : $this->total;
     }

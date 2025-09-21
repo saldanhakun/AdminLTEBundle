@@ -41,7 +41,6 @@ class BreadcrumbController extends EmitterController
         /** @var SidebarMenuEvent $event */
         $event = $this->dispatch(new BreadcrumbMenuEvent($request));
 
-        /** @var MenuItemInterface $active */
         $active = $event->getActive();
         $list = [];
         if (null !== $active) {

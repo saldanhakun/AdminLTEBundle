@@ -17,7 +17,7 @@ class AdminExtensionTest extends TestCase
     public function testGetFilters()
     {
         $sut = new AdminExtension();
-        $this->assertEquals(3, \count($sut->getFilters()));
+        $this->assertCount(3, $sut->getFilters());
         $result = array_map(function ($filter) {
             return $filter->getName();
         }, $sut->getFilters());
@@ -27,7 +27,7 @@ class AdminExtensionTest extends TestCase
     public function testGetFunctions()
     {
         $sut = new AdminExtension();
-        $this->assertEquals(7, \count($sut->getFunctions()));
+        $this->assertCount(7, $sut->getFunctions());
         $result = array_map(function ($function) {
             return $function->getName();
         }, $sut->getFunctions());

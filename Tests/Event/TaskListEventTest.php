@@ -39,7 +39,7 @@ class TaskListEventTest extends TestCase
 
         $this->assertEquals(7, $event->getTotal());
         $this->assertEquals(10, $event->getMax());
-        $this->assertEquals(7, \count($event->getTasks()));
+        $this->assertCount(7, $event->getTasks());
     }
 
     /**
@@ -56,7 +56,7 @@ class TaskListEventTest extends TestCase
 
         $this->assertEquals(7, $event->getTotal());
         $this->assertEquals(5, $event->getMax());
-        $this->assertEquals(5, \count($event->getTasks()));
+        $this->assertCount(5, $event->getTasks());
     }
 
     /**
@@ -73,7 +73,7 @@ class TaskListEventTest extends TestCase
 
         $this->assertEquals(7, $event->getTotal());
         $this->assertEquals(null, $event->getMax());
-        $this->assertEquals(7, \count($event->getTasks()));
+        $this->assertCount(7, $event->getTasks());
     }
 
     /**
@@ -91,7 +91,7 @@ class TaskListEventTest extends TestCase
 
         $this->assertEquals(15, $event->getTotal());
         $this->assertEquals(null, $event->getMax());
-        $this->assertEquals(7, \count($event->getTasks()));
+        $this->assertCount(7, $event->getTasks());
     }
 
     /**
@@ -109,7 +109,7 @@ class TaskListEventTest extends TestCase
 
         $this->assertEquals(15, $event->getTotal());
         $this->assertEquals(3, $event->getMax());
-        $this->assertEquals(3, \count($event->getTasks()));
+        $this->assertCount(3, $event->getTasks());
     }
 
     /**
@@ -117,7 +117,7 @@ class TaskListEventTest extends TestCase
      * @param int $number
      * @return array|TaskModel[]
      */
-    private function generateNbTasks($number)
+    private function generateNbTasks(int $number): array
     {
         $tasks = [];
         for ($i = 0; $i < $number; $i++) {

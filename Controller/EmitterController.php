@@ -18,7 +18,7 @@ class EmitterController extends AbstractController
     /**
      * @var EventDispatcherInterface
      */
-    protected $eventDispatcher;
+    protected EventDispatcherInterface $eventDispatcher;
 
     public function __construct(EventDispatcherInterface $dispatcher)
     {

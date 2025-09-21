@@ -21,22 +21,22 @@ abstract class MenuEvent extends ThemeEvent
     /**
      * @var array
      */
-    private $menuRootItems = [];
+    private array $menuRootItems = [];
     /**
-     * @var Request
+     * @var Request|null
      */
-    private $request;
+    private ?Request $request;
 
     /**
-     * @param Request $request
+     * @param Request|null $request
      */
-    public function __construct(Request $request = null)
+    public function __construct(?Request $request = null)
     {
         $this->request = $request;
     }
 
     /**
-     * @return Request
+     * @return ?Request
      */
     public function getRequest(): ?Request
     {
@@ -55,7 +55,7 @@ abstract class MenuEvent extends ThemeEvent
      * @param MenuItemInterface $item
      * @return MenuEvent
      */
-    public function addItem($item)
+    public function addItem(MenuItemInterface $item): self
     {
         $this->menuRootItems[$item->getIdentifier()] = $item;
 
@@ -63,10 +63,10 @@ abstract class MenuEvent extends ThemeEvent
     }
 
     /**
-     * @param MenuItemInterface|string $item
+     * @param string|MenuItemInterface $item
      * @return MenuEvent
      */
-    public function removeItem($item): MenuEvent
+    public function removeItem(string|MenuItemInterface $item): MenuEvent
     {
         if ($item instanceof MenuItemInterface && isset($this->menuRootItems[$item->getIdentifier()])) {
             unset($this->menuRootItems[$item->getIdentifier()]);
@@ -81,7 +81,7 @@ abstract class MenuEvent extends ThemeEvent
      * @param string $id
      * @return MenuItemInterface|MenuItem|null
      */
-    public function getRootItem($id)
+    public function getRootItem(string $id): MenuItem|MenuItemInterface|null
     {
         return $this->menuRootItems[$id] ?? null;
     }
@@ -89,7 +89,7 @@ abstract class MenuEvent extends ThemeEvent
     /**
      * @return MenuItemInterface|MenuItem|null
      */
-    public function getActive()
+    public function getActive(): MenuItem|MenuItemInterface|null
     {
         foreach ($this->getItems() as $item) {
             if ($item->isActive()) {

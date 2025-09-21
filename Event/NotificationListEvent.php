@@ -20,32 +20,32 @@ class NotificationListEvent extends ThemeEvent implements NotificationRepository
     /**
      * @var array
      */
-    protected $notifications = [];
+    protected array $notifications = [];
 
     /**
      * @var int
      */
-    protected $total = 0;
+    protected int $total = 0;
 
     /**
-     * @var int
+     * @var int|null
      */
-    protected $max = null;
+    protected ?int $max = null;
 
     /**
-     * @param int $max Maximun number of notifications displayed in panel
+     * @param int|null $max Maximum number of notifications displayed in panel
      */
-    public function __construct($max = null)
+    public function __construct(?int $max = null)
     {
         $this->max = $max;
     }
 
     /**
-     * Get the maximun number of notifications displayed in panel
+     * Get the maximum number of notifications displayed in panel
      *
-     * @return int
+     * @return int|null
      */
-    public function getMax()
+    public function getMax(): ?int
     {
         return $this->max;
     }
@@ -53,7 +53,7 @@ class NotificationListEvent extends ThemeEvent implements NotificationRepository
     /**
      * @return array
      */
-    public function getNotifications()
+    public function getNotifications(): array
     {
         if (null !== $this->max) {
             return \array_slice($this->notifications, 0, $this->max);
@@ -67,7 +67,7 @@ class NotificationListEvent extends ThemeEvent implements NotificationRepository
      *
      * @return $this
      */
-    public function addNotification(NotificationInterface $notificationInterface)
+    public function addNotification(NotificationInterface $notificationInterface): static
     {
         $this->notifications[] = $notificationInterface;
 
@@ -77,7 +77,7 @@ class NotificationListEvent extends ThemeEvent implements NotificationRepository
     /**
      * @param int $total
      */
-    public function setTotal($total)
+    public function setTotal(int $total): void
     {
         $this->total = $total;
     }
@@ -85,7 +85,7 @@ class NotificationListEvent extends ThemeEvent implements NotificationRepository
     /**
      * @return int
      */
-    public function getTotal()
+    public function getTotal(): int
     {
         return $this->total === 0 ? \count($this->notifications) : $this->total;
     }

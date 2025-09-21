@@ -18,11 +18,11 @@ final class RuntimeExtension implements RuntimeExtensionInterface
     /**
      * @var ContextHelper<string, mixed>
      */
-    private $context;
+    private ContextHelper $context;
     /**
      * @var array<string, string|null>
      */
-    private $routes;
+    private array $routes;
 
     /**
      * @param ContextHelper<string, mixed> $contextHelper
@@ -38,7 +38,7 @@ final class RuntimeExtension implements RuntimeExtensionInterface
      * @param string $routeName
      * @return string
      */
-    public function getRouteByAlias($routeName)
+    public function getRouteByAlias(string $routeName): string
     {
         return $this->routes[$routeName] ?? $routeName;
     }
@@ -47,7 +47,7 @@ final class RuntimeExtension implements RuntimeExtensionInterface
      * @param string $type
      * @return string
      */
-    public function getTextType($type)
+    public function getTextType(string $type): string
     {
         switch ($type) {
             case Constants::TYPE_INFO:
@@ -71,7 +71,7 @@ final class RuntimeExtension implements RuntimeExtensionInterface
      * @param string $classes
      * @return string
      */
-    public function bodyClass($classes = '')
+    public function bodyClass(string $classes = ''): string
     {
         $classList = [$classes];
         $options = $this->context->getOptions();

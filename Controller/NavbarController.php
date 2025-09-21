@@ -23,7 +23,7 @@ class NavbarController extends EmitterController
     /**
      * @var ContextHelper
      */
-    private $helper;
+    private ContextHelper $helper;
 
     public function __construct(EventDispatcherInterface $dispatcher, ContextHelper $helper)
     {
@@ -35,7 +35,7 @@ class NavbarController extends EmitterController
      * @param int|null $max
      * @return Response
      */
-    public function notificationsAction($max = null): Response
+    public function notificationsAction(?int $max = null): Response
     {
         @trigger_error('NavbarController::notificationsAction() is deprecated and will be removed with 4.0', E_USER_DEPRECATED);
 
@@ -63,7 +63,7 @@ class NavbarController extends EmitterController
      * @param int|null $max
      * @return Response
      */
-    public function messagesAction($max = null): Response
+    public function messagesAction(?int $max = null): Response
     {
         @trigger_error('NavbarController::messagesAction() is deprecated and will be removed with 4.0', E_USER_DEPRECATED);
 
@@ -91,7 +91,7 @@ class NavbarController extends EmitterController
      * @param int|null $max
      * @return Response
      */
-    public function tasksAction($max = null): Response
+    public function tasksAction(?int $max = null): Response
     {
         @trigger_error('NavbarController::tasksAction() is deprecated and will be removed with 4.0', E_USER_DEPRECATED);
 
@@ -126,7 +126,6 @@ class NavbarController extends EmitterController
             return new Response();
         }
 
-        /** @var ShowUserEvent $userEvent */
         $userEvent = $this->dispatch(new NavbarUserEvent());
 
         if ($userEvent instanceof ShowUserEvent && null !== $userEvent->getUser()) {

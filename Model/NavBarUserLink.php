@@ -14,22 +14,22 @@ class NavBarUserLink
     /**
      * @var string
      */
-    protected $title;
+    protected string $title;
     /**
      * @var string
      */
-    protected $path;
+    protected string $path;
     /**
      * @var array
      */
-    protected $parameters;
+    protected array $parameters;
 
     /**
      * @param string $title
      * @param string $path
      * @param array $parameters
      */
-    public function __construct($title, $path, $parameters = [])
+    public function __construct(string $title, string $path, array $parameters = [])
     {
         $this->title = $title;
         $this->path = $path;
@@ -39,7 +39,7 @@ class NavBarUserLink
     /**
      * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -47,7 +47,7 @@ class NavBarUserLink
     /**
      * @param string $title
      */
-    public function setTitle($title)
+    public function setTitle(string $title): void
     {
         $this->title = $title;
     }
@@ -55,7 +55,7 @@ class NavBarUserLink
     /**
      * @return string
      */
-    public function getPath()
+    public function getPath(): string
     {
         return $this->path;
     }
@@ -63,7 +63,7 @@ class NavBarUserLink
     /**
      * @param string $path
      */
-    public function setPath($path)
+    public function setPath(string $path): void
     {
         $this->path = $path;
     }
@@ -71,7 +71,7 @@ class NavBarUserLink
     /**
      * @return array
      */
-    public function getParameters()
+    public function getParameters(): array
     {
         return $this->parameters;
     }
@@ -79,7 +79,7 @@ class NavBarUserLink
     /**
      * @param array $parameters
      */
-    public function setParameters($parameters)
+    public function setParameters(array $parameters): void
     {
         $this->parameters = $parameters;
     }

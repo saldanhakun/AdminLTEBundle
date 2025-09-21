@@ -14,20 +14,20 @@ interface NotificationInterface
     /**
      * @return string
      */
-    public function getMessage();
+    public function getMessage(): string;
 
     /**
      * @return string
      */
-    public function getType();
+    public function getType(): string;
 
     /**
      * @return string
      */
-    public function getIcon();
+    public function getIcon(): string;
 
     /**
      * @return string
      */
-    public function getIdentifier();
+    public function getIdentifier(): string;
 }

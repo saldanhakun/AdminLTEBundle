@@ -21,25 +21,25 @@ abstract class ShowUserEvent extends ThemeEvent implements UserDetailsInterface
     /**
      * @var UserInterface
      */
-    private $user;
+    private UserInterface $user;
     /**
      * @var bool
      */
-    private $showProfileLink = true;
+    private bool $showProfileLink = true;
     /**
      * @var bool
      */
-    private $showLogoutLink = true;
+    private bool $showLogoutLink = true;
     /**
      * @var NavBarUserLink[]
      */
-    private $links = [];
+    private array $links = [];
 
     /**
      * @param UserInterface $user
      * @return ShowUserEvent
      */
-    public function setUser($user)
+    public function setUser(UserInterface $user): self
     {
         $this->user = $user;
 
@@ -66,7 +66,7 @@ abstract class ShowUserEvent extends ThemeEvent implements UserDetailsInterface
      * @param NavBarUserLink $link
      * @return ShowUserEvent
      */
-    public function addLink(NavBarUserLink $link)
+    public function addLink(NavBarUserLink $link): self
     {
         $this->links[] = $link;
 
@@ -85,7 +85,7 @@ abstract class ShowUserEvent extends ThemeEvent implements UserDetailsInterface
      * @param bool $showProfileLink
      * @return ShowUserEvent
      */
-    public function setShowProfileLink(bool $showProfileLink)
+    public function setShowProfileLink(bool $showProfileLink): self
     {
         $this->showProfileLink = $showProfileLink;
 
@@ -104,7 +104,7 @@ abstract class ShowUserEvent extends ThemeEvent implements UserDetailsInterface
      * @param bool $showLogoutLink
      * @return ShowUserEvent
      */
-    public function setShowLogoutLink(bool $showLogoutLink)
+    public function setShowLogoutLink(bool $showLogoutLink): self
     {
         $this->showLogoutLink = $showLogoutLink;
 

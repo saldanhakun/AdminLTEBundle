@@ -12,37 +12,37 @@ namespace KevinPapst\AdminLTEBundle\Model;
 class MessageModel implements MessageInterface
 {
     /**
-     * @var UserInterface
+     * @var UserInterface|null
      */
-    protected $from;
+    protected ?UserInterface $from;
     /**
-     * @var UserInterface
+     * @var UserInterface|null
      */
-    protected $to;
+    protected ?UserInterface $to;
     /**
      * @var \DateTime
      */
-    protected $sentAt;
+    protected \DateTime $sentAt;
     /**
      * @var string
      */
-    protected $subject;
+    protected string $subject;
     /**
      * @var string
      */
-    protected $id;
+    protected string $id;
 
     /**
      * Creates a new MessageModel object with the given values.
      *
      * SentAt will be set to the current DateTime when null is given.
      *
-     * @param UserInterface $from
+     * @param UserInterface|null $from
      * @param string $subject
-     * @param \DateTime $sentAt
-     * @param UserInterface $to
+     * @param \DateTime|null $sentAt
+     * @param UserInterface|null $to
      */
-    public function __construct(UserInterface $from = null, $subject = '', $sentAt = null, UserInterface $to = null)
+    public function __construct(?UserInterface $from = null, string $subject = '', ?\DateTime $sentAt = null, ?UserInterface $to = null)
     {
         $this->to = $to;
         $this->subject = $subject;
@@ -53,7 +53,7 @@ class MessageModel implements MessageInterface
     /**
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
@@ -62,7 +62,7 @@ class MessageModel implements MessageInterface
      * @param string $id
      * @return MessageModel
      */
-    public function setId($id): MessageModel
+    public function setId(string $id): MessageModel
     {
         $this->id = $id;
 
@@ -87,7 +87,7 @@ class MessageModel implements MessageInterface
      *
      * @return UserInterface
      */
-    public function getFrom()
+    public function getFrom(): UserInterface
     {
         return $this->from;
     }
@@ -122,7 +122,7 @@ class MessageModel implements MessageInterface
      * @param string $subject
      * @return $this
      */
-    public function setSubject($subject): MessageModel
+    public function setSubject(string $subject): MessageModel
     {
         $this->subject = $subject;
 
@@ -134,7 +134,7 @@ class MessageModel implements MessageInterface
      *
      * @return string
      */
-    public function getSubject()
+    public function getSubject(): string
     {
         return $this->subject;
     }
@@ -155,9 +155,9 @@ class MessageModel implements MessageInterface
     /**
      * Get the recipient
      *
-     * @return UserInterface
+     * @return UserInterface|null
      */
-    public function getTo()
+    public function getTo(): ?UserInterface
     {
         return $this->to;
     }
@@ -167,7 +167,7 @@ class MessageModel implements MessageInterface
      *
      * @return string
      */
-    public function getIdentifier()
+    public function getIdentifier(): string
     {
         if (!empty($this->id)) {
             return $this->id;
