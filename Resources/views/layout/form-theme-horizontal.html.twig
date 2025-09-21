@@ -22,22 +22,22 @@
      {% set _class = '' %}
     {% if 'checkbox' in types %}
         {% set _class = ' checkbox' %}
-    {% elseif 'radio' in types%}
+    {% elseif 'radio' in types %}
         {% set _class = ' radio' %}
-    {% endif%}
+    {% endif %}
     {# % else %}
         {% set _class = ' form-control' %}
-    {% endif %#}
+    {% endif % #}
 
     {% if attr.class is defined %}
         {% set class = attr.class ~ _class %}
     {% else %}
         {% set class = _class %}
     {% endif %}
-    {% if 'checkbox' not in types and 'form-control' not in class  %}
-        {%  set class = class ~ ' form-control' %}
+    {% if 'checkbox' not in types and 'form-control' not in class %}
+        {% set class = class ~ ' form-control' %}
     {% endif %}
-    {% set attr = attr|merge({'class' : class}) %}
+    {% set attr = attr|merge({class: class}) %}
     {{ parent () }}
 {% endblock widget_attributes %}
 
@@ -65,10 +65,10 @@
     <div class="checkbox">
         {% apply spaceless %}
             {% if not compound %}
-                {% set label_attr = label_attr|merge({'for': id}) %}
+                {% set label_attr = label_attr|merge({for: id}) %}
             {% endif %}
             {% if required %}
-                {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+                {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' required')|trim}) %}
             {% endif %}
             {% if label is not same as(false) and label is empty %}
                 {% set label = name|humanize %}
@@ -88,10 +88,10 @@
     <div class="radio">
         {% apply spaceless %}
             {% if not compound %}
-                {% set label_attr = label_attr|merge({'for': id}) %}
+                {% set label_attr = label_attr|merge({for: id}) %}
             {% endif %}
             {% if required %}
-                {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+                {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' required')|trim}) %}
             {% endif %}
             {% if label is not same as(false) and label is empty %}
                 {% set label = name|humanize %}
@@ -119,7 +119,7 @@
                 {% else %}
                     {% set class = ' timepicker' %}
                 {% endif %}
-                {% set attr = attr|merge({'class' : class, 'data-datepickerenable':'on'}) %}
+                {% set attr = attr|merge({class: class, 'data-datepickerenable': 'on'}) %}
             {% endif %}
 
             {{ block('form_widget_simple') }}
@@ -127,13 +127,13 @@
     {% else %}
         {% set date_pattern = '<div class="row">' ~ date_pattern ~ '</div>'|raw %}
         {{ date_pattern|replace({
-        '{{ year }}' : '<div class="col-xs-4">{{ year }}</div>',
-        '{{ month }}' : '<div class="col-xs-4">{{ month }}</div>',
-        '{{ day }}' : '<div class="col-xs-4">{{ day }}</div>',
+        '{{ year }}': '<div class="col-xs-4">{{ year }}</div>',
+        '{{ month }}': '<div class="col-xs-4">{{ month }}</div>',
+        '{{ day }}': '<div class="col-xs-4">{{ day }}</div>',
         })|raw|replace({
-        '{{ year }}':  form_widget(form.year),
+        '{{ year }}': form_widget(form.year),
         '{{ month }}': form_widget(form.month),
-        '{{ day }}':   form_widget(form.day),
+        '{{ day }}': form_widget(form.day),
         })|raw }}
 
     {% endif %}
@@ -152,7 +152,7 @@
                     {% else %}
                         {% set class = ' timepicker' %}
                     {% endif %}
-                    {% set attr = attr|merge({'class' : class, 'data-timepicker':'on'}) %}
+                    {% set attr = attr|merge({class: class, 'data-timepicker': 'on'}) %}
                 {% endif %}
                 {{ block('form_widget_simple') }}
             </div>

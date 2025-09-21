@@ -2,11 +2,11 @@
 
 {%- block form_widget_simple -%}
     {% if label is defined and label is not null and label is not same as (false) %}
-        {% set attr = attr|merge({'placeholder': label|trans({}, translation_domain)}) %}
+        {% set attr = attr|merge({placeholder: label|trans({}, translation_domain)}) %}
     {% endif %}
     {% set label = false %}
     {% if not attr.icon is defined %}
-        {% set attr = attr|merge({'icon': 'user'}) %}
+        {% set attr = attr|merge({icon: 'user'}) %}
     {% endif %}
     {% if type is defined and type == 'hidden' %}
         {{- parent() -}}
@@ -19,12 +19,12 @@
 {%- endblock form_widget_simple -%}
 
 {% block email_widget -%}
-    {% set attr = attr|merge({'icon': 'envelope'}) %}
+    {% set attr = attr|merge({icon: 'envelope'}) %}
     {{- parent() -}}
 {%- endblock email_widget %}
 
 {% block password_widget -%}
-    {% set attr = attr|merge({'icon': 'lock'}) %}
+    {% set attr = attr|merge({icon: 'lock'}) %}
     {{- parent() -}}
 {%- endblock password_widget %}
 

@@ -1,11 +1,11 @@
-{% import "@AdminLTE/Macros/default.html.twig" as macro %}
+{% import '@AdminLTE/Macros/default.html.twig' as macro %}
 {% if user is not defined or adminlte_direct_include is defined %}
     {% set user = adminlte_sidebar_user() %}
 {% endif %}
 {% if user is defined and user is not null %}
 <div class="user-panel">
     <div class="pull-left image">
-    {{ macro.avatar(user.avatar, user.username)  }}
+    {{ macro.avatar(user.avatar, user.username) }}
     </div>
     <div class="pull-left info">
         <p>{{ user.name }}</p>

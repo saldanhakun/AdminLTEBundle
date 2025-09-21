@@ -2,15 +2,15 @@
 {% if block('box_before') is defined %}{{ block('box_before') }}{% endif %}
 
 {% set _collapsed = collapsed|default(false) %}
-{% set _solid     = solid|default(admin_lte_context.widget.solid)  %}
-{% set _border    = border|default(admin_lte_context.widget.bordered)  %}
-{% set _footer    = use_footer|default(admin_lte_context.widget.use_footer) or block('box_footer') is defined %}
+{% set _solid = solid|default(admin_lte_context.widget.solid) %}
+{% set _border = border|default(admin_lte_context.widget.bordered) %}
+{% set _footer = use_footer|default(admin_lte_context.widget.use_footer) or block('box_footer') is defined %}
 
 {% if removable is not defined %}
     {% set removable = admin_lte_context.widget.removable %}
 {% endif %}
 {% if collapsible is not defined %}
-    {% set collapsible =  (_collapsed or admin_lte_context.widget.collapsible) %}
+    {% set collapsible = (_collapsed or admin_lte_context.widget.collapsible) %}
 {% endif %}
 <div class="box box-{{ boxtype|default(admin_lte_context.widget.type) }}{{ _solid ? ' box-solid' : '' }}{{ _collapsed ? ' collapsed-box' : '' }}"{% if block('box_attributes') is defined %} {{ block('box_attributes') }}{% endif %}>
     {% if block('box_title') is defined or collapsible or removable %}
@@ -21,9 +21,9 @@
             {% if block('box_tools') is defined %}{{ block('box_tools') }}{% endif %}
             {% if collapsible %}
                 {{ button.action_toolbutton(
-                    _collapsed ? 'fas fa-plus'  : 'fas fa-minus' ,
+                    _collapsed ? 'fas fa-plus' : 'fas fa-minus',
                     'collapse',
-                    collapsible_title|default(admin_lte_context.widget.collapsible_title|default()|trans({}, 'AdminLTEBundle'))
+                    collapsible_title|default(admin_lte_context.widget.collapsible_title|default()|trans({}, 'AdminLTEBundle')),
                 ) }}
             {% endif %}
 
@@ -31,7 +31,7 @@
                 {{ button.action_toolbutton(
                 'fas fa-times',
                 'remove',
-                removable_title|default(admin_lte_context.widget.removable_title|default()|trans({}, 'AdminLTEBundle'))
+                removable_title|default(admin_lte_context.widget.removable_title|default()|trans({}, 'AdminLTEBundle')),
                 ) }}
             {% endif %}
         </div>
@@ -39,9 +39,9 @@
     {% endif %}
     <div class="box-body{% if block('box_body_class') is defined %} {{ block('box_body_class') }}{% endif %}">{{ block('box_body') }}</div>
     {% if _footer and block('box_footer') is defined %}
-        {# 
-            If there is a form in the block_footer, it will be rendered when checking "is not empty". 
-            Therefor we have to cache the output first and then perform the checks. 
+        {#
+            If there is a form in the block_footer, it will be rendered when checking "is not empty".
+            Therefor we have to cache the output first and then perform the checks.
         #}
         {% set boxFooter = block('box_footer') %}
         {% if boxFooter is not empty %}

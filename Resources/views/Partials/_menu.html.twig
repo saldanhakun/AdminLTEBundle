@@ -6,7 +6,7 @@
         <span>{% if options.allow_safe_labels and item.getExtra('safe_label', false) %}{{ item.label|trans|raw }}{% else %}{{ item.label|trans }}{% endif %}</span>
     {% endif %}
     {% if item.labelAttribute('data-image') %}<img src="{{ item.labelAttribute('data-image') }}" alt="{{ item.name }}" class="menu-thumbnail"/>{% endif %}
-    
+
     {% import _self as selfMacros %}
     {% if item.hasChildren and options.depth is not same as(0) and item.displayChildren %}
         <span class="pull-right-container">
@@ -39,14 +39,14 @@
 
 {% block list %}
     {% if item.hasChildren and options.depth is not same as(0) and item.displayChildren %}
-        {% import "knp_menu.html.twig" as macros %}
+        {% import 'knp_menu.html.twig' as macros %}
 
         {% if matcher.isAncestor(item) %}
             {%- set listAttributes = listAttributes|merge({class: (listAttributes.class|default('') ~ ' in')|trim}) -%}
         {% endif %}
         {% if not item.isRoot %}
             {%- set listAttributes = listAttributes|merge({class: (listAttributes.class|default('') ~ ' treeview-menu')|trim}) -%}
-        {% endif %} 
+        {% endif %}
         <ul{{ macros.attributes(listAttributes) }}>
             {{ block('children') }}
         </ul>
@@ -62,7 +62,7 @@
 {% endmacro %}
 
 {% block spanElement %}
-    {% import "knp_menu.html.twig" as macros %}
+    {% import 'knp_menu.html.twig' as macros %}
     {% if item.attribute('class') matches '/(^|\s+)header(\s+|$)/' %}
         {{ block('label') }}
     {% else %}

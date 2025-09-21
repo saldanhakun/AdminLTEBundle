@@ -1,9 +1,13 @@
 {
     "name": "saldanhakun/adminlte-bundle",
     "type": "symfony-bundle",
-    "description": "Admin theme bundle for Symfony 4+ based on AdminLTE 2.4 with FOSUserBundle support",
+    "description": "Admin theme bundle for Symfony 7+ based on AdminLTE by Kevin Papst",
     "license": "MIT",
     "authors": [
+        {
+            "name": "Marcelo Saldanha",
+            "homepage": "https://marcelosaldanha.com.br"
+        },
         {
             "name": "Kevin Papst",
             "homepage": "https://www.kevinpapst.de"
@@ -18,33 +22,36 @@
         }
     ],
     "require": {
-        "php": ">=7.1.3",
-        "symfony/asset": ">4.3",
-        "symfony/config": ">4.3",
-        "symfony/dependency-injection": ">4.3",
-        "symfony/event-dispatcher": ">4.3",
-        "symfony/http-foundation": ">4.3",
-        "symfony/http-kernel": ">4.3",
-        "symfony/options-resolver": ">4.3",
-        "symfony/security-core": ">4.3",
-        "symfony/translation": ">4.3",
-        "symfony/twig-bridge": ">4.3",
-        "twig/twig": ">2.0"
+        "php": "^8.2",
+        "symfony/asset": "7.3.*",
+        "symfony/config": "7.3.*",
+        "symfony/dependency-injection": "7.3.*",
+        "symfony/event-dispatcher": "7.3.*",
+        "symfony/http-foundation": "7.3.*",
+        "symfony/http-kernel": "7.3.*",
+        "symfony/options-resolver": "7.3.*",
+        "symfony/security-core": "7.3.*",
+        "symfony/translation": "7.3.*",
+        "symfony/twig-bridge": "7.3.*",
+        "twig/twig": "^3.11"
     },
     "require-dev": {
-        "phpspec/prophecy": "^1.6",
-        "symfony/framework-bundle" : ">4.3",
-        "friendsofphp/php-cs-fixer": "^2.10",
-        "phpunit/phpunit": "^7.3",
-        "phpstan/phpstan": "^0.12",
-        "knplabs/knp-menu-bundle": "^2.2",
-        "phpstan/phpstan-phpunit": "^0.12"
+        "phpspec/prophecy": "^1.22",
+        "symfony/framework-bundle": "7.3.*",
+        "friendsofphp/php-cs-fixer": "^3.87",
+        "phpunit/phpunit": "^11.5",
+        "phpstan/phpstan": "^2.1",
+        "knplabs/knp-menu-bundle": "^3.2",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "vincentlanglet/twig-cs-fixer": "^3.9"
     },
-    "suggest" : {
-        "knplabs/knp-menu-bundle" : "Allows easy menu integration"
+    "suggest": {
+        "knplabs/knp-menu-bundle": "Allows easy menu integration"
     },
     "autoload": {
-        "psr-4": { "KevinPapst\\AdminLTEBundle\\": "" }
+        "psr-4": {
+            "KevinPapst\\AdminLTEBundle\\": ""
+        }
     },
     "scripts": {
         "tests": "vendor/bin/phpunit Tests/",
@@ -52,7 +59,13 @@
             "vendor/bin/phpstan analyse . --level=5",
             "vendor/bin/phpstan analyse -c Tests/phpstan.neon Tests --level=5"
         ],
-        "codestyle": "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none",
-        "codestyle-fix": "vendor/bin/php-cs-fixer fix"
+        "codestyle": [
+            "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none",
+            "vendor/bin/twig-cs-fixer lint Resources/views"
+        ],
+        "codestyle-fix": [
+            "vendor/bin/php-cs-fixer fix",
+            "vendor/bin/twig-cs-fixer lint --fix Resources/views"
+        ]
     }
 }

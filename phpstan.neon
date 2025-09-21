@@ -1,8 +1,3 @@
 includes:
     - vendor/phpstan/phpstan-phpunit/extension.neon
 
-parameters:
-    excludes_analyse:
-        - %rootDir%/../../
-    ignoreErrors:
-        - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeParentInterface::scalarNode\(\).#'

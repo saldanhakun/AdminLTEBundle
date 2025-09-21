@@ -1,4 +1,4 @@
-{% import "@AdminLTE/Macros/default.html.twig" as macro %}
+{% import '@AdminLTE/Macros/default.html.twig' as macro %}
 {% if messages is not defined or adminlte_direct_include is defined %}
     {% set messages = null %}
     {% set adminlte_messages = adminlte_messages() %}
@@ -19,7 +19,7 @@
             <ul class="menu">
                 {% for msg in messages %}
                     <li>
-                        <a href="{{ path('adminlte_message'|route_alias, {'id': msg.identifier}) }}">
+                        <a href="{{ path('adminlte_message'|route_alias, {id: msg.identifier}) }}">
                             <div class="pull-left">
                                 {{ macro.avatar(msg.from.avatar, msg.from.username) }}
                             </div>
@@ -33,7 +33,7 @@
                 {% endfor %}
             </ul>
         </li>
-        <li class="footer"><a href="{{ path('adminlte_messages'|route_alias) }}">{{'View all'|trans({}, 'AdminLTEBundle')}}</a></li>
+        <li class="footer"><a href="{{ path('adminlte_messages'|route_alias) }}">{{ 'View all'|trans({}, 'AdminLTEBundle') }}</a></li>
     </ul>
 </li>
 {% endif %}

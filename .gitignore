@@ -1,14 +1,18 @@
-nbproject/*
-.idea
+# Ignore Composer dependency files
 vendor
 composer.lock
+
+# Ignore Packages dependency files
+node_modules
 package-lock.json
 
-# Ignore Eclipse IDE config files
+# Ignore IDE config files
+nbproject/*
+.idea
 .buildpath
 .project
 .settings
 
 # Ignore cache files from php cs fixer
-.php_cs.cache
-node_modules
+.php-cs-fixer.cache
+.twig-cs-fixer.cache

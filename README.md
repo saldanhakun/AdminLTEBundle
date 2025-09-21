@@ -1,7 +1,15 @@
 
 --- 
-# THIS BUNDLE IS NOT MAINTAINED ANYMORE
+# ESTE FORK É PARA COMPATIBILIDADE TEMPORÁRIA
 
+O AdminLTE foi construído com Symfony 4 em mente, já num contexto de atualização
+do SF2/3. Para uso em aplicações SF7+, ele é muito obsoleto. Porém, chega a ser
+funcional com alguns ajustes, em especial certas atualizações para Bootstrap 5.3+.
+
+São todos pequenos probleminhas resolvíveis, e talvez justifiquem o esforço devido
+ao perfil das (minhas) aplicações que usam o AdminLTE.
+
+## Aviso original do Kevin sobre o repositório abandonado:
 The used AdminLTE version is old.
 Both: supported Symfony and PHP version are EOL.
 

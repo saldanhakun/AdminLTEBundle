@@ -168,6 +168,8 @@ $fixer
             ->name('*.php')
             ->exclude([
                 '.github/',
+                '.git/',
+                '.idea/',
                 'node_modules/',
                 'Resources/',
                 'vendor/',
