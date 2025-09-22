@@ -16,6 +16,7 @@ use KevinPapst\AdminLTEBundle\Event\TaskListEvent;
 use KevinPapst\AdminLTEBundle\Helper\ContextHelper;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use Psr\Container\ContainerInterface;
 use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Contracts\EventDispatcher\Event;
@@ -23,7 +24,7 @@ use Twig\Environment;
 
 class NavbarControllerTest extends TestCase
 {
-    protected function getContainerMock(): MockObject
+    protected function getContainerMock(): MockObject|ContainerInterface
     {
         $container = $this->getMockBuilder(Container::class)->onlyMethods(['get', 'has'])->addMethods(['hasListeners'])->getMock();
         $container->method('has')->willReturnCallback(function ($serviceName) {
@@ -78,11 +79,7 @@ class NavbarControllerTest extends TestCase
         );
 
         $dispatcher->expects(self::once())->method('dispatch')->willReturnCallback(
-            /**
-             * @return Event|void
-             * @var Event $event
-             */
-            function (Event $event) use ($expectedMax, $expectedEventClass) {
+            function (NotificationListEvent|MessageListEvent|TaskListEvent|null $event) use ($expectedMax, $expectedEventClass): NotificationListEvent|MessageListEvent|TaskListEvent {
                 self::assertInstanceOf($expectedEventClass, $event);
                 self::assertEquals($expectedMax, $event->getMax());
 

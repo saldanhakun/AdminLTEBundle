@@ -92,6 +92,6 @@ final class RuntimeExtension implements RuntimeExtensionInterface
             $classList[] = 'sidebar-mini';
         }
 
-        return implode(' ', array_values($classList));
+        return implode(' ', $classList);
     }
 }

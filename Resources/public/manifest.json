@@ -1,7 +1,7 @@
 {
-  "bundles/adminlte/adminlte.css": "/bundles/adminlte/css/adminlte.11e00657b25d11985c19.css",
-  "bundles/adminlte/adminlte.js": "/bundles/adminlte/js/adminlte.23bbe73ad2c359e98944.js",
-  "bundles/adminlte/images/default_avatar.png": "/bundles/adminlte/images/default_avatar.0f50fed9..png",
-  "bundles/adminlte/images/blue@2x.png": "/bundles/adminlte/images/blue@2x.eb5592d0..png",
-  "bundles/adminlte/images/blue.png": "/bundles/adminlte/images/blue.47dfe954..png"
+  "bundles/adminlte/adminlte.css": "/bundles/adminlte/css/adminlte.css",
+  "bundles/adminlte/adminlte.js": "/bundles/adminlte/js/adminlte.js",
+  "bundles/adminlte/images/default_avatar.png": "/bundles/adminlte/images/default_avatar..png",
+  "bundles/adminlte/images/blue@2x.png": "/bundles/adminlte/images/blue@2x..png",
+  "bundles/adminlte/images/blue.png": "/bundles/adminlte/images/blue..png"
 }

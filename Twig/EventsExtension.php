@@ -151,7 +151,7 @@ final class EventsExtension implements RuntimeExtensionInterface
 
         $userEvent = $this->eventDispatcher->dispatch(new NavbarUserEvent());
 
-        if ($userEvent instanceof ShowUserEvent && null !== $userEvent->getUser()) {
+        if (null !== $userEvent->getUser()) {
             return $userEvent;
         }
 

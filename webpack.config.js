@@ -14,10 +14,10 @@ Encore
     .cleanupOutputBeforeBuild()
 
     // add debug data in development
-    .enableSourceMaps(!Encore.isProduction())
+    .enableSourceMaps(true)
 
     // uncomment to create hashed filenames (e.g. app.abc123.css)
-    .enableVersioning(Encore.isProduction())
+    .enableVersioning(false)
 
     // generate only two files: app.js and app.css
     .addEntry('adminlte', './Resources/assets/admin-lte.js')
@@ -39,14 +39,17 @@ Encore
 
     // add hash after file name
     .configureImageRule({
-        filename: 'images/[name].[hash:8].[ext]',
+        //filename: 'images/[name].[hash:8].[ext]',
+        filename: 'images/[name].[ext]',
     })
     .configureFontRule({
         filename: 'webfonts/[name][ext]'
     })
     .configureFilenames({
-        js: 'js/[name].[chunkhash].js',
-        css: 'css/[name].[contenthash].css',
+        //js: 'js/[name].[chunkhash].js',
+        //css: 'css/[name].[contenthash].css',
+        js: 'js/[name].js',
+        css: 'css/[name].css',
     })
 ;
 
