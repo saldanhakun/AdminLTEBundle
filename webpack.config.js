@@ -1,7 +1,7 @@
 var Encore = require('@symfony/webpack-encore');
 
 Encore
-// the project directory where compiled assets will be stored
+    // the project directory where compiled assets will be stored
     .setOutputPath('Resources/public/')
 
     // the public path used by the web server to access the previous directory
@@ -23,13 +23,10 @@ Encore
     .addEntry('adminlte', './Resources/assets/admin-lte.js')
 
     // show OS notifications when builds finish/fail
-    .enableBuildNotifications()
+    //.enableBuildNotifications()
 
     // don't use a runtime.js
     .disableSingleRuntimeChunk()
-
-    // empty the outputPath dir before each build
-    .cleanupOutputBeforeBuild()
 
     // because we need $/jQuery as a global variable
     .autoProvidejQuery()
@@ -42,14 +39,14 @@ Encore
 
     // add hash after file name
     .configureImageRule({
-        filename: 'images/[name][ext]?[hash:8]',
+        filename: 'images/[name].[hash:8].[ext]',
     })
     .configureFontRule({
-        filename: 'fonts/[name][ext]?[hash:8]'
+        filename: 'webfonts/[name][ext]'
     })
     .configureFilenames({
-        js: '[name].js?[chunkhash]',
-        css: '[name].css?[contenthash]',
+        js: 'js/[name].[chunkhash].js',
+        css: 'css/[name].[contenthash].css',
     })
 ;
 

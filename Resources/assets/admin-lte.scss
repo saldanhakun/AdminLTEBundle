@@ -1,11 +1,12 @@
+@use './_vars';
 
-$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
-$fa-font-path: "~@fortawesome/fontawesome-free/webfonts/";
+/*@use '@fortawesome/fontawesome-free/scss/fontawesome';
+@use '@fortawesome/fontawesome-free/scss/regular';
+@use '@fortawesome/fontawesome-free/scss/solid';
+@use '@fortawesome/fontawesome-free/scss/brands';*/
 
-@import '~bootstrap-sass/assets/stylesheets/bootstrap';
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
-@import '~@fortawesome/fontawesome-free/scss/regular';
-@import '~@fortawesome/fontawesome-free/scss/solid';
-@import '~@fortawesome/fontawesome-free/scss/brands';
-@import '~daterangepicker/daterangepicker.css';
-@import '~bootstrap-select/dist/css/bootstrap-select.min.css';
+@use "bootstrap/scss/bootstrap";
+@use "bootstrap/scss/bootstrap-grid";
+@use "bootstrap/scss/bootstrap-utilities";
+@use 'daterangepicker/daterangepicker';
+//@use 'bootstrap-select/sass/bootstrap-select';

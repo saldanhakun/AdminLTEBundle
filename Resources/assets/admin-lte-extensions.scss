@@ -1,5 +1,5 @@
 
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
+//@use "bootstrap/scss/variables" as v;
 
 /*
  * This theme was upgraded to FONT AWESOME 5
@@ -22,7 +22,7 @@
 }
 
 .main-header .sidebar-toggle {
-    font-family: "Font Awesome 5 Free";
+    font-family: "Font Awesome 7 Free";
     font-weight: 900;
 }
 
@@ -52,14 +52,14 @@
     top: 0;
 }
 
-@media (min-width: $screen-sm-min) {
+/*@media (min-width: map-get(v.$grid-breakpoints, sm)) {
     body.login-page {
         .login-logo {
             padding-top: 45px;
             margin-bottom: 55px;
         }
     }
-}
+}*/
 
 body.login-page {
     .login-box-body {
