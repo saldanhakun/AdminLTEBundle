@@ -63,7 +63,7 @@
 
 {% block spanElement %}
     {% import 'knp_menu.html.twig' as macros %}
-    {% if item.attribute('class') matches '/(^|\s+)header(\s+|$)/' %}
+    {% if item.attribute('class') matches '/(^|\\s+)header(\\s+|$)/' %}
         {{ block('label') }}
     {% else %}
         <a{{ macros.attributes(item.labelAttributes) }}>

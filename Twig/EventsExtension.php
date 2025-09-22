@@ -13,7 +13,6 @@ use KevinPapst\AdminLTEBundle\Event\BreadcrumbMenuEvent;
 use KevinPapst\AdminLTEBundle\Event\MessageListEvent;
 use KevinPapst\AdminLTEBundle\Event\NavbarUserEvent;
 use KevinPapst\AdminLTEBundle\Event\NotificationListEvent;
-use KevinPapst\AdminLTEBundle\Event\ShowUserEvent;
 use KevinPapst\AdminLTEBundle\Event\SidebarMenuEvent;
 use KevinPapst\AdminLTEBundle\Event\SidebarUserEvent;
 use KevinPapst\AdminLTEBundle\Event\TaskListEvent;

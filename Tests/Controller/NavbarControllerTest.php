@@ -19,7 +19,6 @@ use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\EventDispatcher\EventDispatcher;
-use Symfony\Contracts\EventDispatcher\Event;
 use Twig\Environment;
 
 class NavbarControllerTest extends TestCase

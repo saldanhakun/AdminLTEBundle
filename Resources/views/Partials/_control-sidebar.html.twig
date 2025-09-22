@@ -2,7 +2,7 @@
 <aside class="control-sidebar control-sidebar-dark">
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
             {% for name, tab in admin_lte_context.control_sidebar %}
-                <li{% if loop.first %} class="active"{% endif %}><a href="#control-sidebar-{{ name }}-tab" data-toggle="tab"><i class="{{ tab.icon }}"></i></a></li>
+                <li{% if loop.first %} class="active"{% endif %}><a href="#control-sidebar-{{ name }}-tab" data-bs-toggle="tab"><i class="{{ tab.icon }}"></i></a></li>
             {% endfor %}
     </ul>
     <div class="tab-content">
