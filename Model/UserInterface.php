@@ -11,38 +11,17 @@ namespace KevinPapst\AdminLTEBundle\Model;
 
 interface UserInterface
 {
-    /**
-     * @return string
-     */
-    public function getAvatar(): string;
+    public function getAvatar(): ?string;
 
-    /**
-     * @return string
-     */
     public function getUsername(): string;
 
-    /**
-     * @return string
-     */
     public function getName(): string;
 
-    /**
-     * @return \DateTime
-     */
-    public function getMemberSince(): \DateTime;
+    public function getMemberSince(): ?\DateTimeInterface;
 
-    /**
-     * @return bool
-     */
     public function isOnline(): bool;
 
-    /**
-     * @return string
-     */
     public function getIdentifier(): string;
 
-    /**
-     * @return string
-     */
     public function getTitle(): string;
 }
