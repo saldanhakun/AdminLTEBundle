@@ -1,0 +1,37 @@
+<!DOCTYPE html{% block html_start %}{% endblock %}>
+<html lang="{{ app.locale }}">
+<head>
+    {% block head %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% endblock %}
+    {% block viewport %}
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    {% endblock %}
+    {% block seo_metadata %}
+        <title>{% block title %}{{ block('page_title') }}{% endblock %}</title>
+        <meta name="description" content="{%- block title -%}{{- block('page_title') -}}{%- endblock -%}">
+    {% endblock %}
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('bundles/adminlte/adminlte.css', 'adminlte') }}">
+    {% endblock %}
+</head>
+
+{#
+Apply one of the following classes for the skin:
+skin-blue, skin-black, skin-purple, skin-yellow, skin-red, skin-green
+
+Apply one or more of the following classes for the layout options:
+fixed, layout-boxed, layout-top-nav, sidebar-collapse, sidebar-mini
+#}
+<body{% block body_start %}{% endblock %}
+    class="{% block body_class %}hold-transition{% endblock %} {{ admin_lte_context.skin|default('')|body_class }}">
+{% block after_body_start %}{% endblock %}
+{% block body %}{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/adminlte/adminlte.js', 'adminlte') }}"></script>
+{% endblock %}
+
+</body>
+</html>

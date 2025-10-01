@@ -1,6 +1,5 @@
 // ------ Core libraries ------
 
-//import './_vars.scss';
 import $ from 'jquery';
 import 'bootstrap';
 import Moment from 'moment';

@@ -1,0 +1,12 @@
+{% if is_login %}
+    <div class="login-logo">
+        {% block logo_login %}<b>Admin</b>LTE{% endblock %}
+    </div>
+{% else %}
+    <span class="logo-mini">
+        {% block logo_mini %}<b>A</b>LT{% endblock %}
+    </span>
+    <span class="logo-lg">
+       {% block logo_large %} <b>Admin</b>LTE {% endblock %}
+    </span>
+{% endif %}
