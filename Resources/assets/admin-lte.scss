@@ -1,12 +1,13 @@
 @use './_vars';
 
-/*@use '@fortawesome/fontawesome-free/scss/fontawesome';
-@use '@fortawesome/fontawesome-free/scss/regular';
-@use '@fortawesome/fontawesome-free/scss/solid';
-@use '@fortawesome/fontawesome-free/scss/brands';*/
+@use '@fortawesome/fontawesome-free/scss/variables' with (
+    // customizing $font-path - make sure it points to where your webfonts are stored in your project
+    $font-path: '../../node_modules/@fortawesome/fontawesome-free/webfonts',
+);
+@use '@fortawesome/fontawesome-free/scss/fontawesome' as fa;
+@use '@fortawesome/fontawesome-free/scss/solid' as fa-solid;
+@use '@fortawesome/fontawesome-free/scss/brands' as fa-brands;
+@use '@fortawesome/fontawesome-free/scss/regular' as fa-regular;
 
-@use "bootstrap/scss/bootstrap";
-@use "bootstrap/scss/bootstrap-grid";
-@use "bootstrap/scss/bootstrap-utilities";
 @use 'daterangepicker/daterangepicker';
 //@use 'bootstrap-select/sass/bootstrap-select';

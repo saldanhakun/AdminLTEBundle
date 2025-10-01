@@ -1,7 +1,12 @@
 {
-  "bundles/adminlte/adminlte.css": "/bundles/adminlte/css/adminlte.css",
-  "bundles/adminlte/adminlte.js": "/bundles/adminlte/js/adminlte.js",
-  "bundles/adminlte/images/default_avatar.png": "/bundles/adminlte/images/default_avatar..png",
-  "bundles/adminlte/images/blue@2x.png": "/bundles/adminlte/images/blue@2x..png",
-  "bundles/adminlte/images/blue.png": "/bundles/adminlte/images/blue..png"
+  "bundles/adminlte/adminlte.js": "/bundles/adminlte/adminlte.e78cf3efe8b6030412c5.js",
+  "bundles/adminlte/adminlte.css": "/bundles/adminlte/adminlte.b594ab323f59a3a724e4.css",
+  "bundles/adminlte/webfonts/fa-solid-900.woff2": "/bundles/adminlte/webfonts/fa-solid-900.0ae4e625.woff2",
+  "bundles/adminlte/webfonts/fa-brands-400.woff2": "/bundles/adminlte/webfonts/fa-brands-400.e7461d69.woff2",
+  "bundles/adminlte/webfonts/fa-regular-400.woff2": "/bundles/adminlte/webfonts/fa-regular-400.1f38a564.woff2",
+  "bundles/adminlte/images/default_avatar.png": "/bundles/adminlte/images/default_avatar.0f50fed9.png",
+  "bundles/adminlte/images/blue@2x.png": "/bundles/adminlte/images/blue@2x.eb5592d0.png",
+  "bundles/adminlte/images/blue.png": "/bundles/adminlte/images/blue.47dfe954.png",
+  "bundles/adminlte/adminlte.js.map": "/bundles/adminlte/adminlte.e78cf3efe8b6030412c5.js.map",
+  "bundles/adminlte/adminlte.css.map": "/bundles/adminlte/adminlte.b594ab323f59a3a724e4.css.map"
 }

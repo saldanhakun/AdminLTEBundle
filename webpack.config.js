@@ -1,4 +1,4 @@
-var Encore = require('@symfony/webpack-encore');
+const Encore = require('@symfony/webpack-encore');
 
 Encore
     // the project directory where compiled assets will be stored
@@ -17,7 +17,7 @@ Encore
     .enableSourceMaps(true)
 
     // uncomment to create hashed filenames (e.g. app.abc123.css)
-    .enableVersioning(false)
+    .enableVersioning(true)
 
     // generate only two files: app.js and app.css
     .addEntry('adminlte', './Resources/assets/admin-lte.js')
@@ -39,17 +39,14 @@ Encore
 
     // add hash after file name
     .configureImageRule({
-        //filename: 'images/[name].[hash:8].[ext]',
-        filename: 'images/[name].[ext]',
+        filename: 'images/[name].[hash:8][ext]',
     })
     .configureFontRule({
-        filename: 'webfonts/[name][ext]'
+        filename: 'webfonts/[name].[hash:8][ext]'
     })
     .configureFilenames({
-        //js: 'js/[name].[chunkhash].js',
-        //css: 'css/[name].[contenthash].css',
-        js: 'js/[name].js',
-        css: 'css/[name].css',
+        js: '[name].[chunkhash].js',
+        css: '[name].[contenthash].css'
     })
 ;
 
