@@ -1,4 +1,14 @@
-{% if is_login %}
+{% set _placement = placement|default('sidebar') %}
+{% if _placement == 'sidebar' %}
+    <a href="{% block logo_path %}{{ path('adminlte_welcome'|route_alias) }}{% endblock %}" class="brand-link">
+        <!--begin::Brand Image-->
+        <img src="{{ asset('bundles/adminlte/dist/assets/img/AdminLTELogo.png', 'adminlte') }}" alt="AdminLTE Logo" class="brand-image opacity-75 shadow">
+        <!--end::Brand Image-->
+        <!--begin::Brand Text-->
+        <span class="brand-text fw-light">AdminLTE 4</span>
+        <!--end::Brand Text-->
+    </a>
+{% elseif _placement == 'security' %}
     <div class="login-logo">
         {% block logo_login %}<b>Admin</b>LTE{% endblock %}
     </div>

@@ -5,7 +5,7 @@
 {% block body %}
     {% block login_box %}
         <div class="login-box">
-            {% include '@AdminLTE/Partials/_logo.html.twig' with {is_login: true} %}
+            {% include '@AdminLTE/Partials/_logo.html.twig' with {placement: security} %}
             <div class="login-box-body">
                 <div class="login-box-msg">
                     <h3 class="login-head">

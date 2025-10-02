@@ -1,4 +1,4 @@
-{% extends '@AdminLTE/layout/layout-core.html.twig' %}
+{% extends '@AdminLTE/layout/base-skeleton.html.twig' %}
 {#
     Use this as your new starter template page, use it to start your new project,
     by adding this code to your own base template:
@@ -7,14 +7,35 @@
 
     Enjoy your AdminLTE theme!
 #}
-{% block body2 %}
+{% block body %}
 <div class="app-wrapper">
 
     <header class="app-header">
+        <a href="{% block logo_path %}{{ path('adminlte_welcome'|route_alias) }}{% endblock %}" class="logo">
+            {% include '@AdminLTE/Partials/_logo.html.twig' with {is_login: false} %}
+        </a>
+
         <nav class="navbar navbar-static-top" role="navigation">
+            {% block navbar_toggle %}
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                <span class="sr-only">{{ 'Toggle navigation'|trans({}, 'AdminLTEBundle') }}</span>
+            </a>
+            {% endblock %}
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     {% block navbar_start %}{% endblock %}
+                    {% block navbar_messages %}
+                        {{ include('@AdminLTE/Navbar/messages.html.twig', {adminlte_direct_include: true}) }}
+                    {% endblock %}
+                    {% block navbar_notifications %}
+                        {{ include('@AdminLTE/Navbar/notifications.html.twig', {adminlte_direct_include: true}) }}
+                    {% endblock %}
+                    {% block navbar_tasks %}
+                        {{ include('@AdminLTE/Navbar/tasks.html.twig', {adminlte_direct_include: true}) }}
+                    {% endblock %}
+                    {% block navbar_user %}
+                        {{ include('@AdminLTE/Navbar/user.html.twig', {adminlte_direct_include: true}) }}
+                    {% endblock %}
                     {% block navbar_end %}{% endblock %}
                     {% block navbar_control_sidebar_toggle %}
                         {% if admin_lte_context.control_sidebar is defined and admin_lte_context.control_sidebar is not empty %}

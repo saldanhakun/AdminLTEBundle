@@ -8,32 +8,37 @@
     {% endif %}
 {% endif %}
 {% if messages is defined and messages is not null %}
-<li class="dropdown messages-menu">
-    <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
-        <i class="far fa-envelope"></i>
-        <span class="label label-success">{{ total }}</span>
+<li class="nav-item dropdown">
+    <a class="nav-link" data-bs-toggle="dropdown" href="#">
+        <i class="bi bi-chat-text"></i>
+        <span class="navbar-badge badge text-bg-danger">{{ total }}</span>
     </a>
-    <ul class="dropdown-menu">
-        <li class="header">{{ 'You have %count% messages'|trans({'%count%': total}, 'AdminLTEBundle') }}</li>
-        <li>
-            <ul class="menu">
-                {% for msg in messages %}
-                    <li>
-                        <a href="{{ path('adminlte_message'|route_alias, {id: msg.identifier}) }}">
-                            <div class="pull-left">
-                                {{ macro.avatar(msg.from.avatar, msg.from.username) }}
-                            </div>
-                            <h4>
-                                {{ msg.from.username }}
-                                <small><i class="far fa-clock"></i> {{ msg.sentAt|date('d.m.Y H:i') }}</small>
-                            </h4>
-                            <p>{{ msg.subject }}</p>
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </li>
-        <li class="footer"><a href="{{ path('adminlte_messages'|route_alias) }}">{{ 'View all'|trans({}, 'AdminLTEBundle') }}</a></li>
-    </ul>
+    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+        <div class="dropdown-item dropdown-header">{{ 'You have %count% messages'|trans({'%count%': total}, 'AdminLTEBundle') }}</div>
+        <div class="dropdown-divider"></div>
+        {% for msg in messages %}
+            <a class="dropdown-item" href="{{ path('adminlte_message'|route_alias, {id: msg.identifier}) }}">
+                <div class="d-flex">
+                    <div class="flex-shrink-0">
+                        {{ macro.avatar(msg.from.avatar, msg.from.username) }}
+                    </div>
+                    <div class="flex-grow-1">
+                        <h3 class="dropdown-item-title">
+                            {{ msg.from.username }}
+                            <span class="float-end fs-7 text-warning">
+                          <i class="bi bi-star-fill"></i>
+                        </span>
+                        </h3>
+                        <p class="fs-7">{{ msg.subject }}</p>
+                        <p class="fs-7 text-secondary">
+                            <i class="bi bi-clock-fill me-1"></i> {{ msg.sentAt|date('d.m.Y H:i') }}
+                        </p>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+        <div class="dropdown-divider"></div>
+        <a href="{{ path('adminlte_messages'|route_alias) }}" class="dropdown-item dropdown-footer">{{ 'View all'|trans({}, 'AdminLTEBundle') }}</a>
+    </div>
 </li>
 {% endif %}
