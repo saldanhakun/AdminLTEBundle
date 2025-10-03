@@ -10,13 +10,13 @@
                         <i class="bi bi-list"></i>
                     </a>
                 </li>
-                {% include '@AdminLTE/Partials/_app-navbar-menu-itens.html.twig' %}
+                {{ include('@AdminLTE/Partials/_app-navbar-menu-itens.html.twig') }}
             </ul>
             <!--end::Start Navbar Links-->
             <!--begin::End Navbar Links-->
             <ul class="navbar-nav ms-auto" role="navigation" aria-label="Navigation 2">
                 <!--begin::Navbar Search-->
-                {% include '@AdminLTE/Partials/_app-navbar-search.html.twig' %}
+                {{ include('@AdminLTE/Partials/_app-navbar-search.html.twig') }}
                 <!--end::Navbar Search-->
                 <!--begin::Messages Dropdown Menu-->
                 {% block navbar_messages %}
@@ -32,7 +32,7 @@
                 {% endblock %}
                 <!--end::Notifications Dropdown Menu-->
                 <!--begin::Fullscreen Toggle-->
-                {% include '@AdminLTE/Partials/_app-navbar-fullscreen.html.twig' %}
+                {{ include('@AdminLTE/Partials/_app-navbar-fullscreen.html.twig') }}
                 <!--end::Fullscreen Toggle-->
                 <!--begin::User Menu Dropdown-->
                 {% block navbar_user %}

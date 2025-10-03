@@ -5,7 +5,7 @@
 {% block body %}
     {% block login_box %}
         <div class="login-box">
-            {% include '@AdminLTE/Partials/_logo.html.twig' with {placement: security} %}
+            {{ include('@AdminLTE/Partials/_logo.html.twig', {placement: security}) }}
             <div class="login-box-body">
                 <div class="login-box-msg">
                     <h3 class="login-head">
@@ -53,12 +53,12 @@
                                 <a href="{{ facebook_oauth_link }}" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fab fa-facebook"></i>
                                     {{ 'Sign in using Facebook'|trans({}, 'AdminLTEBundle') }}
                                 </a>
-                            {% endif  %}
+                            {% endif %}
                             {% if _oauthGoogle %}
                                 <a href="{{ google_oauth_link }}" class="btn btn-block btn-social btn-google btn-flat"><i class="fab fa-google-plus"></i>
                                     {{ 'Sign in using Google+'|trans({}, 'AdminLTEBundle') }}
                                 </a>
-                            {% endif  %}
+                            {% endif %}
                         </div>
                     {% endif %}
                 {% endblock %}

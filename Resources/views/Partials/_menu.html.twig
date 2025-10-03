@@ -36,10 +36,10 @@
         {% import 'knp_menu.html.twig' as macros %}
 
         {% set listAttributes = listAttributes|default({})|merge({
-            'class': ("nav flex-column " ~ (listAttributes.class|default('')))|trim,
-            'data-lte-toggle': "treeview",
-            'role': "navigation",
-            'data-accordion': "false"
+            class: ('nav flex-column ' ~ (listAttributes.class|default('')))|trim,
+            'data-lte-toggle': 'treeview',
+            role: 'navigation',
+            'data-accordion': 'false',
         }) %}
         {% if matcher.isAncestor(item) %}
             {%- set listAttributes = listAttributes|merge({class: (listAttributes.class|default('') ~ ' active')|trim}) -%}
@@ -67,7 +67,7 @@
         {{ block('label') }}
     {% else %}
         {% set labelAttributes = labelAttributes|default(item.labelAttributes|default({}))|merge({
-            'class': ("nav-link " ~ (labelAttributes.class|default('')))|trim,
+            class: ('nav-link ' ~ (labelAttributes.class|default('')))|trim,
         }) %}
         <a {{ macros.attributes(labelAttributes) }}>
             {{ block('label') }}

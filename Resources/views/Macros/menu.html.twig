@@ -14,7 +14,7 @@
             </a>
 
             {% if item.hasChildren %}
-                <ul class="nav nav-treeview" role="navigation"{# aria-label="Navigation 6"#}>
+                <ul class="nav nav-treeview" role="navigation"{# aria-label="Navigation 6" #}>
                     {% for child in item.children %}
                         {% if child.hasChildren %}
                            {{ menu.menu_item(child) }}

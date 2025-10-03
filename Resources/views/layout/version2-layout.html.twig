@@ -12,7 +12,7 @@
 
     <header class="app-header">
         <a href="{% block logo_path %}{{ path('adminlte_welcome'|route_alias) }}{% endblock %}" class="logo">
-            {% include '@AdminLTE/Partials/_logo.html.twig' with {is_login: false} %}
+            {{ include('@AdminLTE/Partials/_logo.html.twig', {is_login: false}) }}
         </a>
 
         <nav class="navbar navbar-static-top" role="navigation">
