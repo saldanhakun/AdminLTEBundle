@@ -64,9 +64,11 @@
             <div class="" data-overlayscrollbars-viewport="scrollbarHidden overflowXHidden overflowYScroll" tabindex="-1" style="margin-right: -16px; margin-bottom: -16px; margin-left: 0px; top: -8px; right: auto; left: -8px; width: calc(100% + 16px); padding: 8px;">
             <nav class="mt-2">
                 <!--begin::Sidebar Menu-->
-                <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="navigation" aria-label="Main navigation" data-accordion="false" id="navigation">
-                    {% include '@AdminLTE/Partials/_app-sidebar-items.html.twig' %}
-                </ul>
+                {% if admin_lte_context.knp_menu.enable %}
+                    {{ include('@AdminLTE/Sidebar/knp-menu.html.twig') }}
+                {% else %}
+                    {{ include('@AdminLTE/Sidebar/menu.html.twig', {adminlte_direct_include: true}) }}
+                {% endif %}
                 <!--end::Sidebar Menu-->
             </nav>
             </div>

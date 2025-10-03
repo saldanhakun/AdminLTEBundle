@@ -3,7 +3,7 @@
     {% set menu = adminlte_menu(app.request) %}
 {% endif %}
 {% if menu is defined and menu is not null %}
-<ul class="sidebar-menu" data-widget="tree">
+<ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="navigation" aria-label="Main navigation" data-accordion="false" id="navigation">
     {% for item in menu %}
         {{ menu_item(item) }}
     {% endfor %}
