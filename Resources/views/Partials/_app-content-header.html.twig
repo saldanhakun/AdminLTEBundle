@@ -3,12 +3,20 @@
     <div class="container-fluid">
         <!--begin::Row-->
         <div class="row">
-            <div class="col-sm-6"><h3 class="mb-0">Fixed Complete</h3></div>
             <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-end">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Fixed Complete</li>
-                </ol>
+                <h1 class="mb-0">
+                    {% block page_title %}{{ 'Admin LTE'|trans({}, 'AdminLTEBundle') }}{% endblock %}
+                </h1>
+                <p class="text-sm">{% block page_subtitle %}{{ 'A short subtitle for your page'|trans({}, 'AdminLTEBundle') }}{% endblock %}</p>
+            </div>
+            <div class="col-sm-6">
+                {% block breadcrumb %}
+                    {% if admin_lte_context.knp_menu.enable %}
+                        {{ include('@AdminLTE/Breadcrumb/knp-breadcrumb.html.twig') }}
+                    {% else %}
+                        {{ include('@AdminLTE/Breadcrumb/breadcrumb.html.twig', {adminlte_direct_include: true}) }}
+                    {% endif %}
+                {% endblock %}
             </div>
         </div>
         <!--end::Row-->

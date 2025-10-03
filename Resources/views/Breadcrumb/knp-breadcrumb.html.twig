@@ -1,5 +1,5 @@
 {% if admin_lte_context.knp_menu.breadcrumb_menu is not same as(false) %}
-    <ol class="breadcrumb">
+    <ol class="breadcrumb float-sm-end">
         {%- set breadcrumbMenu = admin_lte_context.knp_menu.breadcrumb_menu -%}
         {%- if admin_lte_context.knp_menu.breadcrumb_menu is same as(true) -%}
             {%- set breadcrumbMenu = admin_lte_context.knp_menu.main_menu -%}
@@ -7,9 +7,15 @@
         {%- set items = knp_menu_get_breadcrumbs_array(knp_menu_get_current_item(breadcrumbMenu)) -%}
         {%- for item in items -%}
             {%- if not loop.first -%}
-            <li class="{{ loop.last ? 'active' : '' }}">
-                <a href="{{ item.uri }}">{{ item.label|trans }}</a>
-            </li>
+                {% if not loop.last %}
+                    <li class="breadcrumb-item">
+                        <a href="{{ item.uri }}">{{ item.label|trans }}</a>
+                    </li>
+                {% else %}
+                    <li class="breadcrumb-item active" aria-current="page">
+                        {{ item.label|trans }}
+                    </li>
+                {% endif %}
             {%- endif -%}
         {%- endfor -%}
     </ol>

@@ -1,0 +1,47 @@
+{% extends '@AdminLTE/layout/layout-sidebar.html.twig' %}
+{% block body_header %}
+    <nav class="app-header navbar navbar-expand bg-body" id="navigation" tabindex="-1">
+        <!--begin::Container-->
+        <div class="container-fluid">
+            <!--begin::Start Navbar Links-->
+            <ul class="navbar-nav" role="navigation" aria-label="Navigation 1">
+                <li class="nav-item">
+                    <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+                        <i class="bi bi-list"></i>
+                    </a>
+                </li>
+                {% include '@AdminLTE/Partials/_app-navbar-menu-itens.html.twig' %}
+            </ul>
+            <!--end::Start Navbar Links-->
+            <!--begin::End Navbar Links-->
+            <ul class="navbar-nav ms-auto" role="navigation" aria-label="Navigation 2">
+                <!--begin::Navbar Search-->
+                {% include '@AdminLTE/Partials/_app-navbar-search.html.twig' %}
+                <!--end::Navbar Search-->
+                <!--begin::Messages Dropdown Menu-->
+                {% block navbar_messages %}
+                    {{ include('@AdminLTE/Navbar/messages.html.twig', {adminlte_direct_include: true}) }}
+                {% endblock %}
+                <!--end::Messages Dropdown Menu-->
+                <!--begin::Notifications Dropdown Menu-->
+                {% block navbar_notifications %}
+                    {{ include('@AdminLTE/Navbar/notifications.html.twig', {adminlte_direct_include: true}) }}
+                {% endblock %}
+                {% block navbar_tasks %}
+                    {{ include('@AdminLTE/Navbar/tasks.html.twig', {adminlte_direct_include: true}) }}
+                {% endblock %}
+                <!--end::Notifications Dropdown Menu-->
+                <!--begin::Fullscreen Toggle-->
+                {% include '@AdminLTE/Partials/_app-navbar-fullscreen.html.twig' %}
+                <!--end::Fullscreen Toggle-->
+                <!--begin::User Menu Dropdown-->
+                {% block navbar_user %}
+                    {{ include('@AdminLTE/Navbar/user.html.twig', {adminlte_direct_include: true}) }}
+                {% endblock %}
+                <!--end::User Menu Dropdown-->
+            </ul>
+            <!--end::End Navbar Links-->
+        </div>
+        <!--end::Container-->
+    </nav>
+{% endblock %}

@@ -2,104 +2,23 @@
 {% block body %}
 <div class="app-wrapper">
     <!--begin::Header-->
-    <nav class="app-header navbar navbar-expand bg-body" id="navigation" tabindex="-1">
-        <!--begin::Container-->
-        <div class="container-fluid">
-            <!--begin::Start Navbar Links-->
-            <ul class="navbar-nav" role="navigation" aria-label="Navigation 1">
-                <li class="nav-item">
-                    <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
-                        <i class="bi bi-list"></i>
-                    </a>
-                </li>
-                {% include '@AdminLTE/Partials/_app-navbar-menu-itens.html.twig' %}
-            </ul>
-            <!--end::Start Navbar Links-->
-            <!--begin::End Navbar Links-->
-            <ul class="navbar-nav ms-auto" role="navigation" aria-label="Navigation 2">
-                <!--begin::Navbar Search-->
-                {% include '@AdminLTE/Partials/_app-navbar-search.html.twig' %}
-                <!--end::Navbar Search-->
-                <!--begin::Messages Dropdown Menu-->
-                {% block navbar_messages %}
-                    {{ include('@AdminLTE/Navbar/messages.html.twig', {adminlte_direct_include: true}) }}
-                {% endblock %}
-                <!--end::Messages Dropdown Menu-->
-                <!--begin::Notifications Dropdown Menu-->
-                {% block navbar_notifications %}
-                    {{ include('@AdminLTE/Navbar/notifications.html.twig', {adminlte_direct_include: true}) }}
-                {% endblock %}
-                {% block navbar_tasks %}
-                    {{ include('@AdminLTE/Navbar/tasks.html.twig', {adminlte_direct_include: true}) }}
-                {% endblock %}
-                <!--end::Notifications Dropdown Menu-->
-                <!--begin::Fullscreen Toggle-->
-                {% include '@AdminLTE/Partials/_app-navbar-fullscreen.html.twig' %}
-                <!--end::Fullscreen Toggle-->
-                <!--begin::User Menu Dropdown-->
-                {% block navbar_user %}
-                    {{ include('@AdminLTE/Navbar/user.html.twig', {adminlte_direct_include: true}) }}
-                {% endblock %}
-                <!--end::User Menu Dropdown-->
-            </ul>
-            <!--end::End Navbar Links-->
-        </div>
-        <!--end::Container-->
-    </nav>
+    {% block body_header %}{% endblock %}
     <!--end::Header-->
     <!--begin::Sidebar-->
-    <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
-        <!--begin::Sidebar Brand-->
-        <div class="sidebar-brand">
-            <!--begin::Brand Link-->
-            {% include '@AdminLTE/Partials/_logo.html.twig' with {placement: 'sidebar'} %}
-            <!--end::Brand Link-->
-        </div>
-        <!--end::Sidebar Brand-->
-        <!--begin::Sidebar Wrapper-->
-        <div class="sidebar-wrapper" data-overlayscrollbars="host">
-            <div class="os-size-observer">
-                <div class="os-size-observer-listener"></div>
-            </div>
-            <div class="" data-overlayscrollbars-viewport="scrollbarHidden overflowXHidden overflowYScroll" tabindex="-1" style="margin-right: -16px; margin-bottom: -16px; margin-left: 0px; top: -8px; right: auto; left: -8px; width: calc(100% + 16px); padding: 8px;">
-            <nav class="mt-2">
-                <!--begin::Sidebar Menu-->
-                {% if admin_lte_context.knp_menu.enable %}
-                    {{ include('@AdminLTE/Sidebar/knp-menu.html.twig') }}
-                {% else %}
-                    {{ include('@AdminLTE/Sidebar/menu.html.twig', {adminlte_direct_include: true}) }}
-                {% endif %}
-                <!--end::Sidebar Menu-->
-            </nav>
-            </div>
-            <div class="os-scrollbar os-scrollbar-horizontal os-theme-light os-scrollbar-auto-hide os-scrollbar-handle-interactive os-scrollbar-track-interactive os-scrollbar-cornerless os-scrollbar-unusable os-scrollbar-auto-hide-hidden" style="--os-viewport-percent: 1; --os-scroll-direction: 0;">
-                <div class="os-scrollbar-track">
-                    <div class="os-scrollbar-handle"></div>
-                </div>
-            </div>
-            <div class="os-scrollbar os-scrollbar-vertical os-theme-light os-scrollbar-auto-hide os-scrollbar-handle-interactive os-scrollbar-track-interactive os-scrollbar-visible os-scrollbar-cornerless os-scrollbar-auto-hide-hidden" style="--os-viewport-percent: 0.4288; --os-scroll-direction: 0;">
-                <div class="os-scrollbar-track">
-                    <div class="os-scrollbar-handle"></div>
-                </div>
-            </div>
-        </div>
-        <!--end::Sidebar Wrapper-->
-    </aside>
+    {% block body_sidebar %}{% endblock %}
     <!--end::Sidebar-->
     <!--begin::App Main-->
     <main class="app-main" id="main" tabindex="-1">
         <!--begin::App Content Header-->
-        {% include '@AdminLTE/Partials/_app-content-header.html.twig' %}
+        {% block body_content_header %}{% endblock %}
         <!--end::App Content Header-->
         <!--begin::App Content-->
-        {% include '@AdminLTE/Partials/_app-content-body.html.twig' %}
+        {% block body_content %}{% endblock %}
         <!--end::App Content-->
     </main>
     <!--end::App Main-->
     <!--begin::Footer-->
-    <footer class="app-footer">
-        {% include '@AdminLTE/Partials/_footer.html.twig' %}
-    </footer>
+    {% block body_content_footer %}{% endblock %}
     <!--end::Footer-->
     <div class="sidebar-overlay"></div>
 </div>
